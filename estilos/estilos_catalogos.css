@@ -193,3 +193,28 @@ nav ul li form {
 .parrafo-sin-productos{
     color: white;
 }
+
+.pedir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pedir div {
+    background-color: lightgreen;
+    display: flex; 
+    border-radius: 15px;
+    width: 360px;
+
+}
+
+.pedir h2{
+    align-content: center;
+}
+.pedir img {
+    height: 40px;
+    width: 40px;
+}
+.pedir div:hover{
+    background-color: green;
+}
