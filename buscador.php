@@ -34,7 +34,7 @@ $output = '';
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $output .= '<div class="producto">';
-        $output .= '<img src="imagenes/' . $row["Imagen"] . '" alt="' . $row["Nombre"] . '" class="producto-imagen">';
+        $output .= '<img src="uploads/' . $row["Imagen"] . '" alt="' . $row["Nombre"] . '" class="producto-imagen">';
         $output .= '<h2>' . $row["Nombre"] . '</h2>';
         $output .= '<p>' . $row["Descripcion"] . '</p>';
         $output .= '<p>Precio: ' . $row["PrecioVenta"] . '</p>';

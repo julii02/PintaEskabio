@@ -27,13 +27,12 @@
     margin-left: 10px;
     flex: 1 0 15%;
 }
-
 .logo {
     height: 50px;
     transition: transform 0.2s;
+    transform-origin: center; /* Asegura que el origen de la transformación sea el centro */
 }
-
-.header .Icono:hover {
+.header .Icono:hover .logo {
     transform: scale(1.1);
 }
 
