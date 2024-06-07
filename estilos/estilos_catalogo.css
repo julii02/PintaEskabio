@@ -32,7 +32,7 @@
     transition: transform 0.2s;
     transform-origin: center; /* Asegura que el origen de la transformación sea el centro */
 }
-.header .Icono:hover {
+.header .Icono:hover  {
     transform: scale(1.1);
 }
 
@@ -190,36 +190,3 @@ nav ul li form {
     color: #555;
 }
 
-.stock-container {
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.stock-container label {
-    margin-right: 5px;
-}
-
-.stock-container input {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.btn-anadir-carrito {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-anadir-carrito:hover {
-    background-color: #218838;
-}
