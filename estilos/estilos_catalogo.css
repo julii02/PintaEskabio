@@ -32,7 +32,7 @@
     transition: transform 0.2s;
     transform-origin: center; /* Asegura que el origen de la transformación sea el centro */
 }
-.header .Icono:hover .logo {
+.header .Icono:hover {
     transform: scale(1.1);
 }
 
