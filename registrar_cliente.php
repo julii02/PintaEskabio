@@ -33,8 +33,10 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     // Insertar el nuevo cliente
     $sql = "INSERT INTO usuario (Nombre, Apellido, Email, Localidad, Direccion , Contraseña) VALUES ('$nombre', '$apellido', '$email','$localidad','$direccion','$contraseña')";
+
     if (mysqli_query($conexion, $sql)) {
-        echo "<p class='success'>Cliente registrado exitosamente.</p>";
+        echo "<p class='success'>Se ha registrado con exito.</p>";
+        echo "<a href='form_iniciosesion.html'>INICIAR SESION</a>";
     } else {
         echo "<p class='error'>Error: " . $sql . "<br>" . mysqli_error($conexion) . "</p>";
         echo "<a href='form_registro.html'>Volver al formulario</a>";
