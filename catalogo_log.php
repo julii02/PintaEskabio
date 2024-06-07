@@ -18,14 +18,11 @@
                 <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
             </a>
         </div>
-        <nav id="menu_bar">
+        <nav id="menu_bar" class="">
             <ul>
                 <li><a class="font-rickandmorty" href="catalogo_sinlog.php">Catalogo</a></li>
                 <li><a class="font-rickandmorty" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ubicacion-icono" style="cursor: pointer;"><i class="fas fa-map-marker-alt icono ubicacion"></i></a></li>
                 <li><a class="font-rickandmorty" href="form_iniciosesion.html">Registrarse/Log In</a></li>
-                <form action="cerrar_sesion.php" method="post" style="display: inline;">
-                <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
-                </form>
             </ul>
         </nav>
     </header>
