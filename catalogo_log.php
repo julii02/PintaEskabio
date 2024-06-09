@@ -27,7 +27,7 @@
             </ul>
         </nav>
     </header>
-    <img src="imagenes/lrg.png" alt="Publicidad" class="imagen-publicitaria">
+   <br>
 
     <main>
         <section class="contenedor_form">
