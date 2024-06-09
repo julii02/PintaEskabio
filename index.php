@@ -103,7 +103,7 @@
                         <a href="#" class="btn">Comprar Ahora</a>
                     </div>
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Whisky">
+                        <img src="imagenes/jhonny.jpg" alt="Vodka">
                         <h3>Whisky</h3>
                         <p>Descripción del whisky.</p>
                         <a href="#" class="btn">Comprar Ahora</a>
@@ -148,6 +148,38 @@
                 </div>
             </div>
         </section>
+        <section class="preguntas-frecuentes" id="faq">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Cuál es el tiempo de entrega?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>El tiempo de entrega es de 3 a 5 días hábiles.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Cuál es nuestra política de devoluciones?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Puedes devolver cualquier producto dentro de los 30 días posteriores a la compra.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Ofrecen soporte técnico?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Sí, ofrecemos soporte técnico 24/7 a través de nuestro sitio web.</p>
+            </div>
+        </div>
+    </div>
+</section>
         <section class="marcas-img seccion">
                 <section>
                     <h2>Informacion de las marcas que nos patrocinan</h2>
@@ -246,7 +278,7 @@
             </div>
             <div class="content-empresa">
                 <div class="company-info">
-                    <h1>Nombre de la Empresa</h1>
+                    <h1>PINTAESKABIO</h1>
                     <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">Facebook</a>
@@ -267,5 +299,20 @@
             </footer>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
             <script src="js/script.js"></script> 
+             <script>
+        // Script para la funcionalidad de las preguntas frecuentes
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                const icon = question.querySelector('.faq-icon');
+                if (answer.classList.contains('active')) {
+                    icon.textContent = '-';
+                } else {
+                    icon.textContent = '+';
+                }
+            });
+        });
+    </script>
     </body>
 </html>

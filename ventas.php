@@ -20,7 +20,7 @@
 
 <!-- Header -->
 <header class="header">
-        <a href="index.html">
+        <a href="indexadmin.html">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
 </header>

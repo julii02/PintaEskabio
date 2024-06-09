@@ -247,7 +247,7 @@
             </div>
             <div class="content-empresa">
                 <div class="company-info">
-                    <h1>Nombre de la Empresa</h1>
+                    <h1>PINTAESKABIO</h1>
                     <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">Facebook</a>

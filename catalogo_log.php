@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="estilos/estilos_catalogo.css">
+    <link rel="stylesheet" type="text/css" href="estilos/estilo_catalogo.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -21,8 +21,8 @@
         </div>
         <nav id="menu_bar" class="">
             <ul>
-                <li><a class="font-rickandmorty" href="index_cliente.php">Inicio</a></li>
-                <li><a class="font-rickandmorty" href="catalogo_log.php">Catalogo</a></li>
+                <li><a  href="index_cliente.php">Inicio</a></li>
+                <li><a  href="catalogo_log.php">Catalogo</a></li>
                 <form action="cerrar_sesion.php" method="post" style="display: inline;"> <button type="submit" class="btn btn-danger">Cerrar Sesión</button> </form>
             </ul>
         </nav>
