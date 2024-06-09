@@ -27,13 +27,15 @@
     margin-left: 10px;
     flex: 1 0 15%;
 }
+
 .logo {
     height: 50px;
     transition: transform 0.2s;
 }
-.header .Icono :hover {
+.icono:hover {
     transform: scale(1.1);
 }
+
 
 .main-content {
     display: flex;

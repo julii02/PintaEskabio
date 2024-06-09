@@ -18,7 +18,7 @@
                 <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
             </a>
         </div>
-        <nav id="menu_bar">
+        <nav id="menu_bar" class="">
             <ul>
                 <li><a class="font-rickandmorty" href="catalogo_sinlog.php">Catalogo</a></li>
                 <li><a class="font-rickandmorty" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ubicacion-icono" style="cursor: pointer;"><i class="fas fa-map-marker-alt icono ubicacion"></i></a></li>
@@ -26,9 +26,11 @@
             </ul>
         </nav>
     </header>
-    <img src="imagenes/lrg.png" alt="Publicidad" class="imagen-publicitaria">
-
+        <img src="imagenes/lrg.png" alt="Publicidad" class="imagen-publicitaria">
+        <br>
     <main>
+
+        </div>
         <section class="contenedor_form">
             <div class="form-filtros-contenedor">
                 <!-- Campo de búsqueda de palabra clave -->
