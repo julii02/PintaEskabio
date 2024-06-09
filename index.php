@@ -294,9 +294,44 @@
                 <i class="fab fa-whatsapp"></i>
             </a>
 
-            <footer class="footer">
-                <p>&copy; 2024 Mi Página. Todos los derechos reservados.</p>
-            </footer>
+            <footer class="footer-modern">
+    <div class="footer-container">
+        <div class="footer-section about">
+            <h2 class="footer-title">Sobre Nosotros</h2>
+            <p>Somos una tienda dedicada a ofrecer los mejores licores de todo el mundo. Con más de 20 años de experiencia, nos enorgullecemos de nuestra selección de productos de alta calidad y nuestro excelente servicio al cliente.</p>
+        </div>
+        <div class="footer-section links">
+            <h2 class="footer-title">Enlaces Rápidos</h2>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="catalogo_sinlog.php">Productos</a></li>
+                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php#Formulario">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h2 class="footer-title">Contáctanos</h2>
+            <ul>
+                <li><i class="fas fa-phone"></i> +54 1123836055</li>
+                <li><i class="fas fa-envelope"></i> info@tuempresa.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> Calle Falsa 123, Buenos Aires, Argentina</li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h2 class="footer-title">Síguenos</h2>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; UTN FRH – Todos los derechos reservados - 2024</p>
+    </div>
+</footer>
+
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
             <script src="js/script.js"></script> 
              <script>

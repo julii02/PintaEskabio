@@ -556,14 +556,6 @@ header .buscador{
      transform: scale(1.1);
 }
 
-.footer {
-    background-color: #14213D;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-}
 
 .Iconos-sesion a{
     text-decoration: none;
@@ -616,4 +608,86 @@ header .buscador{
 
 .faq-icon {
     font-size: 1.2em;
+}
+
+.footer-modern {
+    background-color: var(--oxford-blue);
+    color: var(--Platinum);
+    padding: 30px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 7px;
+    margin-right: 20px; 
+    margin-left: 20px;/* Añadido para agregar espacio alrededor de cada sección */
+}
+
+.footer-title {
+    font-size: 18px;
+    color: var(--Orange);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: var(--Platinum);
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: var(--Orange);
+}
+
+.footer-section .contact ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section .contact ul li i {
+    margin-right: 10px;
+}
+
+.footer-section .social .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social .social-icons a {
+    color: var(--Platinum);
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.footer-section .social .social-icons a:hover {
+    color: var(--Orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid var(--Platinum);
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--Platinum);
 }
