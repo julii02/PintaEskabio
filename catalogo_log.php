@@ -12,17 +12,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body-principal">
+    <?php session_start() ?>
     <header class="header">
         <div class="Icono">
-            <a href="index.php">
+            <a href="index_cliente.php">
                 <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
             </a>
         </div>
         <nav id="menu_bar" class="">
             <ul>
-                <li><a class="font-rickandmorty" href="catalogo_sinlog.php">Catalogo</a></li>
-                <li><a class="font-rickandmorty" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ubicacion-icono" style="cursor: pointer;"><i class="fas fa-map-marker-alt icono ubicacion"></i></a></li>
-                <li><a class="font-rickandmorty" href="form_iniciosesion.html">Registrarse/Log In</a></li>
+                <li><a class="font-rickandmorty" href="index_cliente.php">Inicio</a></li>
+                <li><a class="font-rickandmorty" href="catalogo_log.php">Catalogo</a></li>
+                <form action="cerrar_sesion.php" method="post" style="display: inline;"> <button type="submit" class="btn btn-danger">Cerrar Sesión</button> </form>
             </ul>
         </nav>
     </header>

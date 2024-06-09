@@ -21,7 +21,6 @@
         <nav id="menu_bar" class="">
             <ul>
                 <li><a class="font-rickandmorty" href="catalogo_sinlog.php">Catalogo</a></li>
-                <li><a class="font-rickandmorty" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ubicacion-icono" style="cursor: pointer;"><i class="fas fa-map-marker-alt icono ubicacion"></i></a></li>
                 <li><a class="font-rickandmorty" href="form_iniciosesion.html">Registrarse/Log In</a></li>
             </ul>
         </nav>

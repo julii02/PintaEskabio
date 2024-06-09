@@ -8,7 +8,6 @@
     background-image: url(../imagenes/fondo2.jpg);
     background-attachment: fixed;
     background-size: cover;
-    /*background-color:#2a0928;*/
 }
 
 .body-principal a{
@@ -55,16 +54,16 @@
     width: 100%;
 }
 
-
-.form-is h2{
-    text-align: center;
-}
-.form-is {
-    background-color:#c1d9cd;
+.form-reg {
+    background-color:#14213D;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 500px;
+}
+.form-reg h2{
+    color: white;
+    text-align: center;
 }
 .form-container {
     background-color: #c1d9cd;
@@ -81,16 +80,18 @@
     margin-bottom: 15px;
 }
 .form-group label {
+    color: white;
     display: block;
     margin-bottom: 5px;
 }
 .form-group input {
+    border-color: #FCA311;
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
 }
 .form-group input[type="submit"] {
-    background-color: #f98f6f;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
@@ -98,3 +99,5 @@
 .form-group input[type="submit"]:hover {
     background-color: #218838;
 }
+
+
