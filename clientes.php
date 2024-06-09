@@ -88,7 +88,7 @@
                         <label for="add-direccion">Dirección:</label>
                         <input type="text" id="add-direccion" name="Direccion" required><br>
                         <label for="add-direccion">Contraseña:</label>
-                        <input type="text" id="add-direccion" name="Password" required><br>
+                        <input type="text" id="add-direccion" name="Contraseña" required><br>
                         <label for="add-admin">Admin:</label>
                         <input type="checkbox" id="add-admin" name="Admin"><br>
                         <input type="submit" value="Agregar" class="edit-submit">

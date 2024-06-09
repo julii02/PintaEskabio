@@ -16,7 +16,7 @@
 
     // Obtener datos del formulario
     $email = $_POST['email'];
-    $contraseña = $_POST['password'];
+    $contraseña = md5($_POST['password']);
 
     // Consulta para verificar si el correo electrónico y la contraseña coinciden
     $sql = "SELECT * FROM usuario WHERE Email = '$email' AND Contraseña = '$contraseña'";

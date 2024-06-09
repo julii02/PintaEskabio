@@ -19,7 +19,7 @@ $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $localidad = $_POST['localidad'];
 $direccion = $_POST['direccion'];
-$contraseña = $_POST['password'];
+$contraseña = md5($_POST['password']);
 
 // Consulta para verificar si el correo electrónico ya existe
 $sql = "SELECT * FROM usuario WHERE Email = '$email'";
