@@ -17,10 +17,10 @@
     </style>
 </head>
 <body>
-
+<?php  session_start()  ?>
 <!-- Header -->
 <header class="header">
-        <a href="indexadmin.html">
+        <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
 </header>
@@ -30,7 +30,7 @@
     <nav>
         <div class="nav-wrapper blue-grey darken-1">
             <div class="col s12">
-                <a href="indexadmin.html" class="breadcrumb">Inicio</a>
+                <a href="index_admin.php" class="breadcrumb">Inicio</a>
                 <a href="#" class="breadcrumb">Compras</a>
             </div>
         </div>

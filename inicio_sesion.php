@@ -36,7 +36,7 @@
         header('Location: index_cliente.php');
         } 
         else {
-        header('Location: indexadmin.html');
+        header('Location: index_admin.php');
         }
     } 
     else {

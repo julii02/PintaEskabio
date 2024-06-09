@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="normalize.css">
 </head>
 <body class="body-principal">
+    <?php  session_start()  ?>
     <header class="header">
-        <a href="indexadmin.html">
+        <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
     </header>
