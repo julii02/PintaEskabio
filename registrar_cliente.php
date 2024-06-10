@@ -11,40 +11,43 @@
 </head>
 <body class="body-principal">
     <?php
-include 'conexion.php';
+    include 'conexion.php';
 
-// Obtener datos del formulario
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$email = $_POST['email'];
-$localidad = $_POST['localidad'];
-$direccion = $_POST['direccion'];
-$contraseña = md5($_POST['password']);
+    // Obtener datos del formulario
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    $localidad = $_POST['localidad'];
+    $direccion = $_POST['direccion'];
+    $contraseña = md5($_POST['password']);
 
-// Consulta para verificar si el correo electrónico ya existe
-$sql = "SELECT * FROM usuario WHERE Email = '$email'";
+    // Consulta para verificar si el correo electrónico ya existe
+    $sql = "SELECT * FROM usuario WHERE Email = '$email'";
 
-$result = mysqli_query($conexion, $sql);
+    $result = mysqli_query($conexion, $sql);
 
-if (mysqli_num_rows($result) > 0) {
-    // El correo electrónico ya existe
-    echo "<p class='error'>Error: El correo electrónico ya está registrado.</p>";
-    echo "<a href='form_registro.html'>Volver al formulario</a>";
-} else {
-    // Insertar el nuevo cliente
-    $sql = "INSERT INTO usuario (Nombre, Apellido, Email, Localidad, Direccion , Contraseña) VALUES ('$nombre', '$apellido', '$email','$localidad','$direccion','$contraseña')";
-
-    if (mysqli_query($conexion, $sql)) {
-        echo "<p class='success'>Se ha registrado con exito.</p>";
-        echo "<a href='form_iniciosesion.html'>INICIAR SESION</a>";
+    if (mysqli_num_rows($result) > 0) {
+        // El correo electrónico ya existe
+        header("Location: form_registro.html?mensaje=Error:%20El%20correo%20electr%C3%B3nico%20ya%20est%C3%A1%20registrado&exito=0");
+        exit;
     } else {
-        echo "<p class='error'>Error: " . $sql . "<br>" . mysqli_error($conexion) . "</p>";
-        echo "<a href='form_registro.html'>Volver al formulario</a>";
-    }
-}
+        // Insertar el nuevo cliente
+        $sql = "INSERT INTO usuario (Nombre, Apellido, Email, Localidad, Direccion, Contraseña) VALUES ('$nombre', '$apellido', '$email', '$localidad', '$direccion', '$contraseña')";
 
-mysqli_close($conexion);
-?>
+        if (mysqli_query($conexion, $sql)) {
+            // Redirigir al usuario a form_iniciosesion.html con el mensaje de notificación
+            header("Location: form_iniciosesion.html?mensaje=Se%20ha%20registrado%20con%20%C3%A9xito&exito=1");
+            exit;
+        } else {
+            // En caso de error, redirigir al usuario a form_registro.html con el mensaje de error
+            header("Location: form_registro.html?mensaje=Error%20al%20registrar:%20" . urlencode(mysqli_error($conexion)) . "&exito=0");
+            exit;
+        }
+    }
+
+    mysqli_close($conexion);
+    ?>
+
 
 </body>
 </html>

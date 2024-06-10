@@ -24,7 +24,7 @@
             
         </nav>
     </header>
-
+    <div id="notification-container"></div>
     <main class="main-content">
       <div class="form-is">
         <h2>Iniciar Sesion</h2>
@@ -49,5 +49,45 @@
         <p>&copy; 2024 Mi Página. Todos los derechos reservados.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function mostrarNotificacion(mensaje, exito = true) {
+            const notificationContainer = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            
+            if (exito) {
+                notification.className = 'alert alert-success';
+            } else {
+                notification.className = 'alert alert-danger';
+            }
+
+            notification.textContent = mensaje;
+            notificationContainer.appendChild(notification);
+
+            // Eliminar la notificación después de 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Función para obtener parámetros de la URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Obtener el mensaje y el estado de éxito de la URL
+        var mensaje = getParameterByName('mensaje');
+        var exito = getParameterByName('exito');
+
+        if (mensaje) {
+            // Mostrar el mensaje como notificación
+            mostrarNotificacion(mensaje, exito === '1');
+        }
+    </script>
 </body>
 </html>
