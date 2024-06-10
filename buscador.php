@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
         $output .= '<p>Tipo: ' . $row["Tipo"] . '</p>';
         $output .= '<div class="stock-container">';
         $output .= '<label>Stock:</label>';
-        $output .= '<input type="number" value="1" min="1" max="' . $row["Stock"] . '">';
+        $output .= '<input type="number" class="stock" value="1" min="1" max="' . $row["Stock"] . '">';
         $output .= '</div>';
         $output .= '<button class="btn-anadir-carrito">Añadir al carrito</button>';
         $output .= '</div>';
