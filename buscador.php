@@ -33,11 +33,12 @@ $output = '';
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $output .= '<div class="producto">';
+        
+        $output .= '<div class="producto" data-id="' . $row["ID"] . '">';
         $output .= '<img src="uploads/' . $row["Imagen"] . '" alt="' . $row["Nombre"] . '" class="producto-imagen">';
         $output .= '<h2>' . $row["Nombre"] . '</h2>';
         $output .= '<p>' . $row["Descripcion"] . '</p>';
-        $output .= '<p>Precio: ' . $row["PrecioVenta"] . '</p>';
+        $output .= '<p class="precio">Precio: $' . number_format($row["PrecioVenta"], 2) . '</p>';
         $output .= '<p>Tipo: ' . $row["Tipo"] . '</p>';
         $output .= '<div class="stock-container">';
         $output .= '<label>Stock:</label>';
