@@ -49,15 +49,16 @@
                     <label>Tipo de bebida</label>
                     <select name="Tipo" id="Tipo">
                         <option value="Todos">Todos</option>
-                        <option value="Aperitivo">Aperitivo</option>
-                        <option value="Vodka">Vodka</option>
-                        <option value="Cerveza">Cerveza</option>
-                        <option value="Whisky">Whisky</option>
-                        <option value="Vino">Vino</option>
-                        <option value="Champagne">Champagne</option>
+                        <option value="Aperitivo">Aperitivos</option>
+                        <option value="Vodka">Vodkas</option>
+                        <option value="Cerveza">Cervezas</option>
+                        <option value="Whisky">Whiskys</option>
+                        <option value="Vino">Vinos</option>
+                        <option value="Champagne">Champagnes</option>
                         <option value="Jugos">Jugos</option>
                         <option value="Energizante">Energizantes</option>
                         <option value="Gaseosa">Gaseosas</option>
+                        <option value="Licor">Licores</option>
                     </select>
                 </div>
                 <div class="form-filtros">
