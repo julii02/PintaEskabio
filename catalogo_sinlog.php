@@ -132,7 +132,7 @@
             var parametros = {"buscar": 1, "PalabraClave": PalabraClave, "Precio": Precio, "Tipo": Tipo, "Alcohol": Alcohol};
             $.ajax({
                 data: parametros,
-                url: 'buscador.php',
+                url: 'buscador_nolog.php',
                 type: 'POST',
                 timeout: 10000,
                 success: function(response) {
