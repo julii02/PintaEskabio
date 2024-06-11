@@ -84,7 +84,7 @@
 
     <!-- Boton del ojito -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red modal-trigger" href="#modalAddSale">
+        <a class="btn-floating btn-large waves-light blue modal-trigger" href="#modalAddSale">
             <i class="large material-icons">add</i>
         </a>
     </div>

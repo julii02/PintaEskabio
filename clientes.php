@@ -6,6 +6,34 @@
     <title>Mi Página</title>
     <link rel="stylesheet" type="text/css" href="estilos/estilos_clientes.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
+    <style>
+        .add-button{
+            color: #ffffff;
+            position: fixed;
+            font-size: 40px;
+            bottom: 20px;
+            top: 90%;
+            right: 20px;
+            z-index: 100;
+            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body class="body-principal">
     <?php  session_start()  ?>
