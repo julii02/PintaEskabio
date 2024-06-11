@@ -203,23 +203,3 @@
     padding-top: 60px;
 }
 
-.add-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    top: 100px;
-    right: 130px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-
-.add-button:hover {
-    background-color: #e53935;
-}
