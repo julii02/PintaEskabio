@@ -217,7 +217,7 @@
 
         <section class="Formulario-principal seccion" id = "Formulario">
             <div class="form-container">
-                <form class="form-aspecto" action="juliangonzalez6102@gmail.com" method="GET">
+                <form class="form-aspecto" action="email_contacto_log.php" method="GET">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">

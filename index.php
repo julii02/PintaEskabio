@@ -10,7 +10,7 @@
 
         <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog.css">
+        <link rel="stylesheet" type="text/css" href="estilos/estilo_cliente_sinlog.css">
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" href="estilos/lightbox.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -255,7 +255,7 @@
 
         <section class="Formulario-principal seccion" id = "Formulario">
             <div class="form-container">
-                <form class="form-aspecto" action="juliangonzalez6102@gmail.com" method="GET">
+                <form class="form-aspecto" action="email_contacto.php" method="GET">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -278,6 +278,7 @@
                     <input type="submit" value="Enviar">
                 </form>
             </div>
+
             <div class="content-empresa">
                 <div class="company-info">
                     <h1>PINTAESKABIO</h1>
@@ -351,13 +352,13 @@
             });
         });
     </script>
-     <script>
+      <script>
         // Función para establecer una cookie
-        function setCookie(name, value, minutes) { // Cambié 'hours' por 'minutes'
+        function setCookie(name, value, minutes) {
             var expires = "";
             if (minutes) {
                 var date = new Date();
-                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Cambié el cálculo para usar minutos
+                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Ajustado para minutos
                 expires = "; expires=" + date.toUTCString();
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
@@ -373,6 +374,11 @@
                 if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
             }
             return null;
+        }
+
+        // Función para borrar una cookie
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=0; path=/';
         }
 
         // Función para comprobar si la cookie existe
@@ -391,10 +397,12 @@
                 };
 
                 document.getElementById("no-button").onclick = function() {
+                    eraseCookie("ageConfirmed");
                     window.location.href = "https://www.google.com"; // Redirigir a otra página
                 };
             }
         };
     </script>
+
     </body>
 </html>
