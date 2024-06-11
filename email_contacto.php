@@ -15,7 +15,7 @@
 
     
     mysqli_query($conexion , $sql);
-    header('Location: index.php');
+    header('Location: index.php#Formulario');
     mysqli_close($conexion);
 
 ?> 

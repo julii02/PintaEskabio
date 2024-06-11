@@ -10,7 +10,7 @@
 
         <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog.css">
+        <link rel="stylesheet" type="text/css" href="estilos/estilo_cliente_sinlog.css">
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" href="estilos/lightbox.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -255,7 +255,7 @@
 
         <section class="Formulario-principal seccion" id = "Formulario">
             <div class="form-container">
-                <form class="form-aspecto" action="email_contacto_log.php" method="GET">
+                <form class="form-aspecto" action="email_contacto.php" method="GET">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -278,6 +278,7 @@
                     <input type="submit" value="Enviar">
                 </form>
             </div>
+
             <div class="content-empresa">
                 <div class="company-info">
                     <h1>PINTAESKABIO</h1>
@@ -396,5 +397,6 @@
             }
         };
     </script>
+
     </body>
 </html>
