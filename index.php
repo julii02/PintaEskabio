@@ -21,13 +21,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     </head>
     <body class="body-principal">
-        <div id="age-check-modal" class="modal">
+        <!--<div id="age-check-modal" class="modal">
             <div class="modal-content">
                 <h2>¿Eres mayor de 18 años?</h2>
                 <button id="yes-button">Sí</button>
                 <button id="no-button">No</button>
             </div>
-        </div>
+        </div> -->
         <header>
             <div class="nav-arriba">
                 <div class="Icono">
@@ -43,7 +43,7 @@
             <nav class="menu">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="catalogo_sinlog.php">Productos</a></li>
+                    <li><a href="catalogo_sinlog.php">Catalogo</a></li>
                     <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                     <li><a href="index.php#Formulario">Contacto</a></li>
                 </ul>

@@ -13,7 +13,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body-principal">
-    <?php session_start() ?>
+    <?php
+        session_start();
+        if (!isset($_SESSION['usuario'])) {
+            header('Location: form_iniciosesion.html');
+            exit();
+        }
+
+        // Código de la página protegida
+    ?>
     <!-- Contenedor para las notificaciones -->
     <div id="notification-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
         <header>
@@ -240,34 +248,68 @@
                 notification.remove();
             }, 3000);
         }
+        
+        function confirmarCompra() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-        async function confirmarCompra() {
-            const { jsPDF } = window.jspdf;
+            // Verificar si el carrito está vacío
+            if (carrito.length === 0) {
+                mostrarNotificacion('El carrito está vacío');
+                return;
+            }
 
-            const doc = new jsPDF();
-
-            // Título del documento
-            doc.setFontSize(18);
-            doc.text('Resumen de la Compra', 20, 20);
-
-            // Variables de posicionamiento en el PDF
-            let yPos = 30;
-
+            // Crear un objeto FormData para enviar los datos
+            let formData = new FormData();
             carrito.forEach((producto, index) => {
-                doc.setFontSize(12);
-                doc.text(`Producto: ${producto.nombre}`, 20, yPos);
-                doc.text(`Cantidad: ${producto.cantidad}`, 20, yPos + 10);
-                doc.text(`Precio: $${(producto.precio * producto.cantidad).toFixed(2)}`, 20, yPos + 20);
-                yPos += 30;
+                formData.append(`productos[${index}][id]`, producto.id);
+                formData.append(`productos[${index}][nombre]`, producto.nombre);
+                formData.append(`productos[${index}][precio]`, producto.precio);
+                formData.append(`productos[${index}][cantidad]`, producto.cantidad);
             });
 
-            // Precio total
-            const precioTotal = carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
-            doc.setFontSize(14);
-            doc.text(`Total: $${precioTotal.toFixed(2)}`, 20, yPos);
+            // Realizar la solicitud AJAX para confirmar la compra
+            $.ajax({
+                url: 'guardar_compra.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    let res = JSON.parse(response);
+                    mostrarNotificacion(res.message);
+                    if (res.status === 'success') {
+                        // Vaciar el carrito localmente después de una compra exitosa
+                        localStorage.removeItem('carrito');
+                        actualizarCarrito(); // Actualizar la visualización del carrito en la página
+                    }
+                },
+                error: function(xhr, status, error) {
+                    mostrarNotificacion('Error al confirmar la compra');
+                }
+            });
+        }
 
-            // Guardar el PDF
-            doc.save('Resumen_de_compra.pdf');
+        function actualizarTablaVentas() {
+            fetch('obtener_ventas.php')
+                .then(response => response.json())
+                .then(data => {
+                    const salesTableBody = document.getElementById('salesTableBody');
+                    salesTableBody.innerHTML = ''; // Limpiar tabla existente
+
+                    data.forEach(venta => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${venta.Fecha}</td>
+                            <td>${venta.Importe}</td>
+                            <td>${venta.Cliente}</td>
+                            <td>
+                                <a class="btn green modal-trigger" href="#modalViewSale" onclick="showSaleDetails(${venta.ID})"><i class="material-icons">remove_red_eye</i></a>
+                            </td>
+                        `;
+                        salesTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
         }
 
         function buscar_filtro(PalabraClave, Precio, Tipo, Alcohol) {
@@ -307,36 +349,6 @@
             buscar_filtro('', 'Todos', 'Todos', 'Todos');
             actualizarCarrito(); // Cargar carrito desde localStorage al cargar la página
         });
-    </script>
-    <script>
-        async function confirmarCompra() {
-            const { jsPDF } = window.jspdf;
-
-            const doc = new jsPDF();
-
-            // Título del documento
-            doc.setFontSize(18);
-            doc.text('Resumen de la Compra', 20, 20);
-
-            // Variables de posicionamiento en el PDF
-            let yPos = 30;
-
-            carrito.forEach((producto, index) => {
-                doc.setFontSize(12);
-                doc.text(`Producto: ${producto.nombre}`, 20, yPos);
-                doc.text(`Cantidad: ${producto.cantidad}`, 20, yPos + 10);
-                doc.text(`Precio: $${(producto.precio * producto.cantidad).toFixed(2)}`, 20, yPos + 20);
-                yPos += 30;
-            });
-
-            // Precio total
-            const precioTotal = carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
-            doc.setFontSize(14);
-            doc.text(`Total: $${precioTotal.toFixed(2)}`, 20, yPos);
-
-            // Guardar el PDF
-            doc.save('Resumen_de_compra.pdf');
-        }
     </script>
 </body>
 </html>
