@@ -10,7 +10,7 @@
 
         <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="estilos/estilo_cliente_sinlog.css">
+        <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog.css">
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" href="estilos/lightbox.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -21,6 +21,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     </head>
     <body class="body-principal">
+        <div id="age-check-modal" class="modal">
+            <div class="modal-content">
+                <h2>¿Eres mayor de 18 años?</h2>
+                <button id="yes-button">Sí</button>
+                <button id="no-button">No</button>
+            </div>
+        </div>
         <header>
             <div class="nav-arriba">
                 <div class="Icono">
@@ -343,6 +350,51 @@
                 }
             });
         });
+    </script>
+     <script>
+        // Función para establecer una cookie
+        function setCookie(name, value, hours) { // Cambié 'days' por 'hours'
+            var expires = "";
+            if (hours) {
+                var date = new Date();
+                date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // Cambié el cálculo para usar horas
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Función para obtener una cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Función para comprobar si la cookie existe
+        function checkAge() {
+            return getCookie("ageConfirmed") === "true";
+        }
+
+        window.onload = function() {
+            if (!checkAge()) {
+                var modal = document.getElementById("age-check-modal");
+                modal.style.display = "block";
+
+                document.getElementById("yes-button").onclick = function() {
+                    setCookie("ageConfirmed", "true", 1); // Cookie válida por 1 hora
+                    modal.style.display = "none";
+                };
+
+                document.getElementById("no-button").onclick = function() {
+                    window.location.href = "https://www.google.com"; // Redirigir a otra página
+                };
+            }
+        };
     </script>
     </body>
 </html>
