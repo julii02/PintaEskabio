@@ -353,11 +353,11 @@
     </script>
      <script>
         // Función para establecer una cookie
-        function setCookie(name, value, hours) { // Cambié 'days' por 'hours'
+        function setCookie(name, value, minutes) { // Cambié 'hours' por 'minutes'
             var expires = "";
-            if (hours) {
+            if (minutes) {
                 var date = new Date();
-                date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // Cambié el cálculo para usar horas
+                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Cambié el cálculo para usar minutos
                 expires = "; expires=" + date.toUTCString();
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
@@ -386,7 +386,7 @@
                 modal.style.display = "block";
 
                 document.getElementById("yes-button").onclick = function() {
-                    setCookie("ageConfirmed", "true", 1); // Cookie válida por 1 hora
+                    setCookie("ageConfirmed", "true", 15); // Cookie válida por 15 minutos
                     modal.style.display = "none";
                 };
 
