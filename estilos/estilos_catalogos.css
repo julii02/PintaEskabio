@@ -410,3 +410,31 @@ div.producto-detalles {
 .negrita {
     font-weight: bold;
 }
+.notification {
+    display: none;
+    background-color: var(--Platinum);
+    color: var(--oxford-blue);
+    border: 1px solid var(--Orange);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.notification a {
+    color: var(--Orange);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.notification .close-btn {
+    background: none;
+    border: none;
+    color: var(--oxford-blue);
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
