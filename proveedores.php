@@ -11,9 +11,9 @@
             color: #ffffff;
             position: fixed;
             font-size: 40px;
-            line-height: -69px;
+            bottom: 20px;
             top: 90%;
-            right: 5px;
+            right: 20px;
             z-index: 100;
             box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
@@ -26,6 +26,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>

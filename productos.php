@@ -6,27 +6,6 @@
     <title>Mi Página</title>
     <link rel="stylesheet" type="text/css" href="estilos/estilos_productos.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
-    <style>
-        .add-button{
-            color: #ffffff;
-            position: fixed;
-            font-size: 40px;
-            top: 90%;
-            right: 5px;
-            z-index: 100000;
-            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            border-radius: 50%;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 <body class="body-principal">
     <?php  session_start()  ?>
