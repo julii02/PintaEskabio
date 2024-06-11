@@ -352,13 +352,13 @@
             });
         });
     </script>
-     <script>
+      <script>
         // Función para establecer una cookie
-        function setCookie(name, value, minutes) { // Cambié 'hours' por 'minutes'
+        function setCookie(name, value, minutes) {
             var expires = "";
             if (minutes) {
                 var date = new Date();
-                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Cambié el cálculo para usar minutos
+                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Ajustado para minutos
                 expires = "; expires=" + date.toUTCString();
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
@@ -374,6 +374,11 @@
                 if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
             }
             return null;
+        }
+
+        // Función para borrar una cookie
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=0; path=/';
         }
 
         // Función para comprobar si la cookie existe
@@ -392,6 +397,7 @@
                 };
 
                 document.getElementById("no-button").onclick = function() {
+                    eraseCookie("ageConfirmed");
                     window.location.href = "https://www.google.com"; // Redirigir a otra página
                 };
             }
