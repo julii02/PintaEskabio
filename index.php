@@ -10,7 +10,7 @@
 
         <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog.css">
+        <link rel="stylesheet" type="text/css" href="estilos/estilo_cliente_sinlog.css">
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" href="estilos/lightbox.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -97,34 +97,29 @@
                 <h2>Nuestros Productos</h2>
                 <div class="product-list">
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Vino">
-                        <h3>Vino Tinto</h3>
-                        <p>Descripción del vino tinto.</p>
-                        <a href="#" class="btn">Comprar Ahora</a>
+                        <img src="imagenes/image-Photoroom (4).png" alt="Vino">
+                        <h3>Vinos</h3>
+                        <a href="catalogo_sinlog.php" class="btn">Comprar Ahora</a>
                     </div>
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Vodka">
-                        <h3>Whisky</h3>
-                        <p>Descripción del whisky.</p>
-                        <a href="#" class="btn">Comprar Ahora</a>
+                        <img src="imagenes/whiskacho.png" alt="Vodka">
+                        <h3>Whiskys</h3>
+                        <a href="catalogo_sinlog.php" class="btn">Comprar Ahora</a>
                     </div>
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Whisky">
-                        <h3>Whisky</h3>
-                        <p>Descripción del whisky.</p>
-                        <a href="#" class="btn">Comprar Ahora</a>
+                        <img src="imagenes/images-Photoroom.png" alt="Whisky">
+                        <h3>Vodkas</h3>
+                        <a href="catalogo_sinlog.php" class="btn">Comprar Ahora</a>
                     </div>
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Whisky">
-                        <h3>Whisky</h3>
-                        <p>Descripción del whisky.</p>
-                        <a href="#" class="btn">Comprar Ahora</a>
+                        <img src="imagenes/image-Photoroom (2).png" alt="Champagne">
+                        <h3>Champagnes</h3>
+                        <a href="catalogo_sinlog.php" class="btn">Comprar Ahora</a>
                     </div>
                     <div class="product-item">
-                        <img src="imagenes/jhonny.jpg" alt="Whisky">
-                        <h3>Whisky</h3>
-                        <p>Descripción del whisky.</p>
-                        <a href="#" class="btn">Comprar Ahora</a>
+                        <img src="imagenes/image-Photoroom (1).png" alt="Aperitivos">
+                        <h3>Aperitivos</h3>
+                        <a href="catalogo_sinlog.php" class="btn">Comprar Ahora</a>
                     </div>
                     <!-- Más productos -->
                 </div>
@@ -253,7 +248,7 @@
 
         <section class="Formulario-principal seccion" id = "Formulario">
             <div class="form-container">
-                <form class="form-aspecto">
+                <form class="form-aspecto" action="juliangonzalez6102@gmail.com" method="GET">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -281,9 +276,9 @@
                     <h1>PINTAESKABIO</h1>
                     <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon">Facebook</a>
-                        <a href="#" class="social-icon">Twitter</a>
-                        <a href="#" class="social-icon">Instagram</a>
+                        <a href="https://www.facebook.com" class="social-icon">Facebook</a>
+                        <a href="https://x.com/home" class="social-icon">Twitter</a>
+                        <a href="https://www.instagram.com/" class="social-icon">Instagram</a>
                     </div>
             </div>
         </section>  
@@ -320,10 +315,10 @@
         <div class="footer-section social">
             <h2 class="footer-title">Síguenos</h2>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </div>

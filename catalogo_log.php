@@ -9,72 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="estilos/estilos_catalogos.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
-    <style>
-        .producto-en-carrito {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .producto-detalles {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
-        .img-carrito {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-
-        .producto-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .linea-separadora {
-            border: 0;
-            height: 1px;
-            background: #000; /* Cambia el color de fondo a negro */
-            margin: 10px 0;
-        }
-
-        .wpp-boton2 i {
-            color: #e7841a;
-            position: fixed;
-            font-size: 40px;
-            line-height: 55px;
-            bottom: 15px;
-            right: 7px;
-            z-index: 100;
-            box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            border-radius: 50%;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .wpp-boton2 i:hover {
-            color: #0df053;
-            transform: scale(1.1);
-        }
-        div.producto-detalles {
-            border-bottom: 1px solid black;
-        }
-        .negrita {
-            font-weight: bold;
-        }
-    </style>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body-principal">
@@ -203,10 +138,10 @@
             <div class="footer-section social">
                 <h2 class="footer-title">Síguenos</h2>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
