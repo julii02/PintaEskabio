@@ -23,7 +23,7 @@
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         // Las credenciales son correctas, iniciar sesión
-        $_SESSION['usuario'] = $row['Email'];
+        $_SESSION['usuario'] = $row['ID'];
         $_SESSION['nombre'] = $row['Nombre']; 
         $_SESSION['admin'] = $row['Admin'];
 
