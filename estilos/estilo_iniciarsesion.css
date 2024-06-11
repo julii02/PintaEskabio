@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
+:root{
+    --oxford-blue : #14213D;
+    --Orange :#FCA311;
+    --Platinum:#E5E5E5;
+}
 .body-principal {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,30 +14,81 @@
     background-image: url(../imagenes/fondo2.jpg);
     background-attachment: fixed;
     background-size: cover;
+    /*background-color:#2a0928;*/
 }
 
 .body-principal a{
     text-decoration: none;
 }
 
-.header {
-    background-color:#14213D;
-    height: 70px;
+header{
+    width: 100%;
+    width: 100%;
+    background-color: var(--oxford-blue);
+    color: white;
+}
+
+.nav-arriba, .menu{
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 10px 20px;
+}
+.nav-arriba{
+    justify-content: space-between;
+    background-color: var(--oxford-blue);
 }
 .Icono{
-    display: flex;
-    margin-left: 10px;
-    flex: 1 0 15%;
+    flex:1;
+    transition: transform 1s;
 }
-.logo {
-    height: 50px;
-    transition: transform 0.2s;
-}
-.header .Icono :hover {
+
+header img:hover{
     transform: scale(1.1);
+}
+.logo{
+    height: 60px;
+}
+header .buscador{
+    flex:2;
+    text-align: center;
+}
+.buscador input{
+    width: 40%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.Iconos-sesion a span{
+    font-size: 2.5rem;
+    color: white;
+}
+.Iconos-sesion a span:hover{
+    color:wheat;
+}
+/*Segundo nivel de nagevacion*/
+.menu{
+    width: 100%;
+    justify-content: center;
+}
+.menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.menu ul li{
+    margin: 0 15px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+.menu ul li a:hover{
+    background-color: #575757;
+    border-radius: 5px;
 }
 
 .main-content {
@@ -54,16 +111,17 @@
     width: 100%;
 }
 
-.form-reg {
+
+.form-is h2{
+    text-align: center;
+    color: white;
+}
+.form-is {
     background-color:#14213D;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 500px;
-}
-.form-reg h2{
-    color: white;
-    text-align: center;
 }
 .form-container {
     background-color: #c1d9cd;
@@ -86,12 +144,14 @@
 }
 .form-group input {
     border-color: #FCA311;
+    color: black;
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
 }
 .form-group input[type="submit"] {
     background-color: black;
+    border-color: #FCA311;
     color: white;
     border: none;
     cursor: pointer;
@@ -99,5 +159,6 @@
 .form-group input[type="submit"]:hover {
     background-color: #218838;
 }
-
-
+.registrado-palabra{
+    color: white;
+}
