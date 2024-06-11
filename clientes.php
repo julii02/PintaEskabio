@@ -6,28 +6,6 @@
     <title>Mi Página</title>
     <link rel="stylesheet" type="text/css" href="estilos/estilos_clientes.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
-    <style>
-        .add-button{
-            color: #ffffff;
-            position: fixed;
-            font-size: 40px;
-            line-height: -69px;
-            top: 90%;
-            right: 5px;
-            z-index: 100;
-            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            border-radius: 50%;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 <body class="body-principal">
     <?php  session_start()  ?>
@@ -110,8 +88,8 @@
                         <input type="text" id="add-localidad" name="Localidad" required><br>
                         <label for="add-direccion">Dirección:</label>
                         <input type="text" id="add-direccion" name="Direccion" required><br>
-                        <label for="add-direccion">Contraseña:</label>
-                        <input type="text" id="add-direccion" name="Contraseña" required><br>
+                        <label for="add-contrasena">Contraseña:</label>
+                        <input type="text" id="add-contrasena" name="Contraseña" required><br>
                         <label for="add-admin">Admin:</label>
                         <input type="checkbox" id="add-admin" name="Admin"><br>
                         <input type="submit" value="Agregar" class="edit-submit">
