@@ -8,20 +8,29 @@
     <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="estilos/estilos_catalogos.css">
+    <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body-principal">
-    <header class="header">
-        <div class="Icono">
-            <a href="index.php">
-                <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
-            </a>
+    <header>
+        <div class="nav-arriba">
+            <div class="Icono">
+                <a href="index.php">
+                    <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
+                </a>
+            </div>
+            <div class="Iconos-sesion">
+                <a class="font-rickandmorty" href="form_iniciosesion.html">Registrarse/Log In</a>
+            </div>
         </div>
-        <nav id="menu_bar" class="">
+        
+        <nav class="menu">
             <ul>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="catalogo_sinlog.php">Catalogo</a></li>
-                <li><a href="form_iniciosesion.html">Registrarse/Log In</a></li>
+                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php#Formulario">Contacto</a></li>
             </ul>
         </nav>
     </header>
