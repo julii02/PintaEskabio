@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="estilos/estilos_catalogos.css">
+    <link rel="stylesheet" type="text/css" href="estilos/estilo_catalogos.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -16,19 +16,24 @@
     <?php session_start() ?>
     <!-- Contenedor para las notificaciones -->
     <div id="notification-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
-    <header class="header">
-        <div class="Icono">
-            <a href="index_cliente.php">
-                <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
-            </a>
+        <header>
+        <div class="nav-arriba">
+            <div class="Icono">
+                <a href="index.php">
+                    <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
+                </a>
+            </div>
+            <div class="Iconos-sesion">
+                <form action="cerrar_sesion.php" method="post" style="display: inline;"> <button type="submit" class="btn btn-danger">Cerrar Sesión</button> </form>
+            </div>
         </div>
-        <nav id="menu_bar" class="">
+        
+        <nav class="menu">
             <ul>
-                <li><a href="index_cliente.php">Inicio</a></li>
-                <li><a href="catalogo_log.php">Catalogo</a></li>
-                <form action="cerrar_sesion.php" method="post" style="display: inline;"> 
-                    <button type="submit" class="btn btn-danger">Cerrar Sesión</button> 
-                </form>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="catalogo_sinlog.php">Catalogo</a></li>
+                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php#Formulario">Contacto</a></li>
             </ul>
         </nav>
     </header>

@@ -17,48 +17,79 @@
     background-attachment: fixed;
     background-size: cover;
 }
-
-.body-principal a {
+body{
     text-decoration: none;
 }
-
-.header {
-    background-color: #14213D;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Icono {
-    display: flex;
-    margin-left: 10px;
-    flex: 1 0 15%;
-}
-.logo {
-    height: 50px;
-    transition: transform 0.2s;
-
-}
-.logo:hover  {
-    transform: scale(1.1);
-}
-
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    font-size: 1.2rem;
-    padding-right: 2rem;
+header{
+    width: 100%;
+    width: 100%;
+    background-color: var(--oxford-blue);
     color: white;
 }
 
-nav ul li form {
-    padding-right: 20rem;
-    padding-top: 17px;
+.nav-arriba, .menu{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
 }
+.nav-arriba{
+    justify-content: space-between;
+    background-color: var(--oxford-blue);
+}
+.Icono{
+    flex:1;
+    transition: transform 1s;
+}
+
+header img:hover{
+    transform: scale(1.1);
+}
+.logo{
+    height: 60px;
+}
+header .buscador{
+    flex:2;
+    text-align: center;
+}
+.buscador input{
+    width: 40%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.Iconos-sesion a span{
+    font-size: 2.5rem;
+    color: white;
+}
+.Iconos-sesion a span:hover{
+    color:wheat;
+}
+/*Segundo nivel de nagevacion*/
+.menu{
+    width: 100%;
+    justify-content: center;
+}
+.menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.menu ul li{
+    margin: 0 15px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+.menu ul li a:hover{
+    background-color: #575757;
+    border-radius: 5px;
+}
+
 
 .imagen-publicitaria {
     width: 100%;
