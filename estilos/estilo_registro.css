@@ -26,6 +26,10 @@ header{
     background-color: var(--oxford-blue);
     color: white;
 }
+header a {
+    text-decoration: none;
+    color: white;
+}
 
 .nav-arriba, .menu{
     display: flex;

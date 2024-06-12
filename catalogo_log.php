@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="estilos/estilo_catalogos.css">
+    <link rel="stylesheet" type="text/css" href="estilos/estilos_catalogos.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

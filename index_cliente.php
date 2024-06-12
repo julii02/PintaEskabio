@@ -10,7 +10,7 @@
 
         <script src="https://kit.fontawesome.com/3e32f3aa7a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="estilos/estilo_cliente_sinlog.css">
+        <link rel="stylesheet" type="text/css" href="estilos/estilo_clien_sinlog_j.css">
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" href="estilos/lightbox.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -44,23 +44,38 @@
             </nav>
         </header>
         <article>
-            <div class="principal-carousel">
+            <div class="principal-carousel" id="carrusel">
                 <div class="container-carousel">
-                    <div class="carruseles" id="slider">
+                    <div class="carruseles" id="slider"> 
                         <div class="slider-section">
                             <img src="imagenes/principal.jpg" alt="Imagen 1" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal01.jpeg" alt="Imagen 2" class="gallery-image">
+                            <img src="imagenes/principal01.jpg" alt="Imagen 2" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal02.jpeg" alt="Imagen 3" class="gallery-image">
+                            <img src="imagenes/principal02.jpg" alt="Imagen 3" class="gallery-image">
                         </div>
                         <div class="slider-section">
                             <img src="imagenes/principal03.jpg" alt="Imagen 4" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal04.png" alt="Imagen 4" class="gallery-image">
+                            <img src="imagenes/principal04.jpg" alt="Imagen 5" class="gallery-image">
+                        </div>
+                        <div class="slider-section">
+                            <img src="imagenes/principal05.jpg" alt="Imagen 6" class="gallery-image">
+                        </div>
+                        <div class="slider-section">
+                            <img src="imagenes/principal06.jpg" alt="Imagen 7" class="gallery-image">
+                        </div>
+                        <div class="slider-section">
+                            <img src="imagenes/principal07.jpg" alt="Imagen 8" class="gallery-image">
+                        </div>
+                        <div class="slider-section">
+                            <img src="imagenes/principal08.jpg" alt="Imagen 9" class="gallery-image">
+                        </div>
+                        <div class="slider-section">
+                            <img src="imagenes/principal09.jpg" alt="Imagen 10" class="gallery-image">
                         </div>
                     </div> 
                     <div class="btn-left"><i class='bx bx-chevron-left'></i></div>
@@ -70,24 +85,24 @@
             <section class="information container">
                 <div class ="information-content">
                     <div class = "information-1">
-                        <img src="imagenes/i1.svg" alt="">
+                        <i class="ti ti-building-store"></i>
                         <h3>Atencion 24hrs</h3>
                         <p>
                             Estamos 24 /7 
                         </p>
                     </div>
                     <div class = "information-1">
-                        <img src="imagenes/i2.svg" alt="">
+                        <i class="ti ti-star"></i>
                         <h3>Pago seguro</h3>
                         <p>
                             10+ años de trayectoria y experiencia en el rubro.
                         </p>
                     </div>
                     <div class = "information-1">
-                        <img src="imagenes/i3.svg" alt="">
-                        <h3>Rapidez</h3>
+                        <i class="ti ti-shopping-bag-check"></i>
+                        <h3>Variedad</h3>
                         <p>
-                            Entregas en menos de 72 horas hábiles.
+                            Contamos con un gran surtido de productos.
                         </p>
                     </div>
                 </div>
@@ -97,38 +112,33 @@
         <section id="productos" class="productos seccion">
                 <h2>Nuestros Productos</h2>
                 <div class="product-list">
-                    <div class="product-item">
-                        <img src="imagenes/image-Photoroom (4).png" alt="Vino">
-                        <h3>Vinos</h3>
-                        <a href="catalogo_log.php" class="btn">Comprar Ahora</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="imagenes/whiskacho.png" alt="Whisky">
-                        <h3>Whiskys</h3>
-                        <a href="catalogo_log.php" class="btn">Comprar Ahora</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="imagenes/images-Photoroom.png" alt="Vodka">
-                        <h3>Vodkas</h3>
-                        <a href="catalogo_log.php" class="btn">Comprar Ahora</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="imagenes/image-Photoroom (2).png" alt="Champagne">
-                        <h3>Champagnes</h3>
-                        <a href="catalogo_log.php" class="btn">Comprar Ahora</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="imagenes/image-Photoroom (1).png" alt="Aperitivos">
+                    <a href="catalogo_log.php" class="product-item">
+                        <img src="imagenes/marcas/producto.png" alt="Vino">
+                        <h3>Con alcohol</h3>
+                    </a>
+                    <a href="catalogo_log.php" class="product-item">
+                        <img src="imagenes/marcas/producto2.png" alt="Vino">
+                        <h3>Gaseosas</h3>
+                    </a>
+                    <a href="catalogo_log.php" class="product-item">
+                        <img src="imagenes/marcas/producto3.png" alt="Vino">
                         <h3>Aperitivos</h3>
-                        <a href="catalogo_log.php" class="btn">Comprar Ahora</a>
-                    </div>
+                    </a>
+                    <a href="catalogo_log.php" class="product-item">
+                        <img src="imagenes/marcas/producto4.png" alt="Vino">
+                        <h3>Energizantes</h3>
+                    </a>
+                    <a href="catalogo_log.php" class="product-item">
+                        <img src="imagenes/marcas/producto5.png" alt="Vino">
+                        <h3>Cervezas</h3>
+                    </a>
                     <!-- Más productos -->
                 </div>
         </section>
 
-        <section id="sobre-nosotros" class="sobre-nosotros seccion">
-            <div class="about-content">
-                <div class="about-column">
+        <section  class="sobre-nosotros seccion">
+            <div class="about-content"  id="nosotros">
+                <div class="about-column nosotros">
                     <h3>Quienes Somos</h3>
                     <p>Somos una tienda dedicada a ofrecer los mejores licores de todo el mundo.
                         Con más de 20 años de experiencia en el mercado, nos enorgullecemos de nuestra selección de productos de alta calidad y nuestro excelente servicio al cliente. Nuestro objetivo es brindar a nuestros clientes una experiencia única y satisfactoria al descubrir y disfrutar de los mejores licores.
@@ -144,80 +154,91 @@
                 </div>
             </div>
         </section>
-        <section class="marcas-img seccion">
-                <section>
-                    <h2>Informacion de las marcas que nos patrocinan</h2>
-                    <div class="card" >
-                        <a href="imagenes/jhonny.jpg" data-lightbox="marcas" ><img src="imagenes/jhonny.jpg" alt="Johnnie Walker" title="Johnnie Walker"></a>
-                        <div>
-                            <h3>Johnnie Walker</h3>
-                            <p>
-                                <strong>Johnnie Walker​</strong> es una marca de whisky escocés ahora propiedad de Diageo que se originó en la ciudad escocesa de Kilmarnock,
-                                East Ayrshire. La marca fue establecida por primera vez por el tendero <strong>John Walker</strong>.
-                                Es la marca de whisky escocés mezclado más ampliamente distribuida en el mundo,
-                                vendida en casi todos los países, con ventas anuales equivalentes a más de <strong>223.7 millones de botellas de 700 ml en 2016
-                                (156.6 millones de litros)</strong>. Johnnie Walker es conocido por su distintiva gama de whiskies, que van desde el clásico Johnnie Walker Red Label
-                                hasta el exclusivo y prestigioso Johnnie Walker Blue Label.
-                            </p>
-                        <button class = "btn" >Mas información...</button>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <a href="imagenes/smirnoff.jpeg" data-lightbox="marcas" ><img src="imagenes/smirnoff.jpeg" alt="Smirnoff" title="Smirnoff"></a>
-                        <div>
-                            <h3>Smirnoff</h3>
-                            <p>
-                                Elaborado por la destilería homónima, fundada por <strong>Piotr Arsenieyevich Smirnov</strong> en <strong>1864</strong>. 
-                                Cuando Piotr falleció, en <strong>1910</strong>, recogió el legado su tercer hijo <strong>Vladimir Smirnov</strong>, que llevó a la empresa a lo más alto.
-                                Actualmente es el vodka más vendido en todo el mundo, con mercado en más de <strong>130 países</strong>, y pertenece a la multinacional <strong>Diageo</strong>.
-                                En <strong>2003</strong> obtuvo la medalla de oro en la competencia mundial de bebidas espirituosas celebrada en <strong>San Francisco</strong>.
-                                Se distribuye en botellas de <strong>750 cc</strong> y <strong>1000 cc</strong> con una graduación de alcohol del <strong>37.5%</strong>.
-                            </p>
-                        <button class = "btn">Mas información...</button>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <a href="imagenes/coronona.jpeg" data-lightbox="marcas" ><img src="imagenes/coronona.jpeg" alt="Corona Extra" title="Corona Extra"></a>
-                        <div>
-                            <h3>Corona</h3>
-                            <p>
-                                <strong>Corona</strong> es una marca de cerveza fundada en <strong>1926</strong>, producida en múltiples fábricas en 
-                                México y exportada a mercados de todo el mundo. La empresa belga <strong>Anheuser-Busch 
-                                InBev</strong> es propietaria de la cerveza en todos los demás mercados. Es la marca de 
-                                cerveza importada más vendida en los <strong>Estados Unidos</strong>. A menudo se sirve con una 
-                                rodaja de limón o lima en el cuello de la botella para agregar acidez y sabor. 
-                                La receta incluye maíz, así como malta de cebada y lúpulo que se utilizan 
-                                tradicionalmente para hacer cerveza.
-                            </p>
-                        </p>
-                        <button class = "btn" >Mas información...</button>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <a href="imagenes/cocacola.jpg" data-lightbox="marcas" ><img src="imagenes/cocacola.jpg" alt="Coca Cola" title="Coca Cola"></a>
-                        <div>
-                            <h3>Coca Cola</h3>
-                            <p>
-                                <strong>Coca-Cola</strong> (también conocida comúnmente como Coca en muchos países hispanohablantes; 
-                                en inglés también conocida como Coke) es una bebida azucarada gaseosa vendida a 
-                                nivel mundial en tiendas, restaurantes y máquinas expendedoras en más de doscientos 
-                                países o territorios. Es el principal producto de <strong>The Coca-Cola Company</strong>, de origen 
-                                estadounidense. En un principio, cuando la inventó el farmacéutico <strong>John Stith 
-                                Pemberton</strong>, fue concebida como una bebida medicinal patentada, aunque posteriormente, 
-                                fue adquirida por el empresario <strong>Asa Griggs Candler</strong>, que hizo de la bebida una de las 
-                                más consumidas del <strong>siglo XX</strong>, y del <strong>siglo XXI</strong>.
-                            </p>
-                        <button class = "btn" >Mas información...</button>
-                        </div>
-                    </div>
-                </section>
 
-                <script src="js/lightbox-plus-jquery.min.js"></script>
+        <div class="slider-container" id="marcas">
+            <h2>Marcas que confían en nosotros</h2>
+            <div class="slider-img">
+                <div class="slide-track">
+                    <div class="slide"><img src="imagenes/marcas/marca1.png" alt="Marca 1"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca2.png" alt="Marca 2"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca3.png" alt="Marca 3"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca4.png" alt="Marca 4"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca5.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca6.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca7.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca8.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca9.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca10.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca11.png" alt="Marca 5"></div>
+
+                    <!-- Repeat slides for continuous effect -->
+                    <div class="slide"><img src="imagenes/marcas/marca1.png" alt="Marca 1"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca2.png" alt="Marca 2"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca3.png" alt="Marca 3"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca4.png" alt="Marca 4"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca5.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca6.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca7.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca8.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca9.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca10.png" alt="Marca 5"></div>
+                    <div class="slide"><img src="imagenes/marcas/marca11.png" alt="Marca 5"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="faq" id="Preguntas">
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Hay mínimo de compra?
+                    <span class="indicator">&#9660;</span>
+                </div>
+                <div class="faq-answer">La compra mínima es de $30.000 retirando por depósito. Para envíos la compra mínima es de $60.000.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Realizan envíos?
+                    <span class="indicator">&#9660;</span>
+                </div>
+                <div class="faq-answer">Sí, enviamos con logística propia en todo CABA y en algunas localidades de GBA. También hacemos envíos a todo el país a través de distintos expresos y transportes.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Tiene costo de envío?
+                    <span class="indicator">&#9660;</span>
+                </div>
+                <div class="faq-answer">El envío tiene un costo de $2.500 en CABA. Si el pedido es mayor a $300.000, dicho costo queda bonificado. Si el pedido es a través de un transporte o expreso, el mismo corre por cuenta del cliente. Para envíos en GBA, consultar precios.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuánto demoran las entregas?
+                    <span class="indicator">&#9660;</span>
+                </div>
+                <div class="faq-answer">Las entregas tienen un plazo máximo de 72 hs hábiles.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuáles son los medios de pago?
+                    <span class="indicator">&#9660;</span>
+                </div>
+                <div class="faq-answer">Aceptamos pagos mediante efectivo, depósito bancario o transferencia bancaria.</div>
+            </div>
         </section>
 
         <section class="Formulario-principal seccion" id = "Formulario">
-            <div class="form-container">
-                <form class="form-aspecto" action="email_contacto_log.php" method="GET">
+            <div class="content-empresa" >
+                <div class="company-info">
+                    <img src="imagenes/asd.png" alt="Logo de la página">
+                    <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="ti ti-brand-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="ti ti-brand-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="ti ti-mail"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container" id="contacto">
+                <form class="form-aspecto">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -240,16 +261,7 @@
                     <input type="submit" value="Enviar">
                 </form>
             </div>
-            <div class="content-empresa">
-                <div class="company-info">
-                    <h1>PINTAESKABIO</h1>
-                    <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com" class="social-icon">Facebook</a>
-                        <a href="https://x.com/home" class="social-icon">Twitter</a>
-                        <a href="https://www.instagram.com/" class="social-icon">Instagram</a>
-                    </div>
-            </div>
+
         </section>  
             <script src="script.js"></script>
 
