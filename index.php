@@ -254,8 +254,19 @@
         </section>
 
         <section class="Formulario-principal seccion" id = "Formulario">
-            <div class="form-container">
-                <form class="form-aspecto" action="email_contacto.php" method="GET">
+            <div class="content-empresa" >
+                <div class="company-info">
+                    <img src="imagenes/asd.png" alt="Logo de la página">
+                    <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="ti ti-brand-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="ti ti-brand-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="ti ti-mail"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container" id="contacto">
+                <form class="form-aspecto">
                     <h2>Dejanos tu mensaje</h2>
                     <label for="fname">Nombre</label>
                     <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -279,16 +290,6 @@
                 </form>
             </div>
 
-            <div class="content-empresa">
-                <div class="company-info">
-                    <h1>PINTAESKABIO</h1>
-                    <p>¿Tenes dudas? Rellena el siguiente formulario o escribirnos a nuestros medios de contacto y pronto nos pondremos en comunicación con vos.</p>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com" class="social-icon">Facebook</a>
-                        <a href="https://x.com/home" class="social-icon">Twitter</a>
-                        <a href="https://www.instagram.com/" class="social-icon">Instagram</a>
-                    </div>
-            </div>
         </section>  
             <script src="script.js"></script>
 
