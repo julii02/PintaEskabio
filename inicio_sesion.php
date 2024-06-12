@@ -24,7 +24,6 @@
         $row = mysqli_fetch_assoc($result);
         // Las credenciales son correctas, iniciar sesión
         $_SESSION['usuario'] = $row['ID'];
-        $_SESSION['email'] = $row['Email'];
         $_SESSION['nombre'] = $row['Nombre']; 
         $_SESSION['admin'] = $row['Admin'];
 

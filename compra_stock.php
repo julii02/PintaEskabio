@@ -100,11 +100,11 @@
                             <i class="material-icons prefix">local_bar</i>
                             <select id="product_0" name="products[0][product]" class="validate product-select" required>
                                 <?php
-                                $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioVenta FROM producto");
+                                $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioCompra FROM producto");
                                 if (mysqli_num_rows($consulta_productos) > 0) {
                                     echo '<option value="" disabled selected>Selecciona un producto</option>';
                                     while ($fila = mysqli_fetch_assoc($consulta_productos)) {
-                                        echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioVenta'] . '">' . $fila['nombre'] . '</option>';
+                                        echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioCompra'] . '">' . $fila['nombre'] . '</option>';
                                     }
                                 } else {
                                     echo '<option value="" disabled>No hay productos disponibles</option>';
@@ -246,11 +246,11 @@
                             <i class="material-icons prefix">local_bar</i>
                             <select id="product_${productIndex}" name="products[${productIndex}][product]" class="validate product-select" required>
                                 <?php
-                                $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioVenta FROM producto");
+                                $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioCompra FROM producto");
                                 if (mysqli_num_rows($consulta_productos) > 0) {
                                     echo '<option value="" disabled selected>Selecciona un producto</option>';
                                     while ($fila = mysqli_fetch_assoc($consulta_productos)) {
-                                        echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioVenta'] . '">' . $fila['nombre'] . '</option>';
+                                        echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioCompra'] . '">' . $fila['nombre'] . '</option>';
                                     }
                                 } else {
                                     echo '<option value="" disabled>No hay productos disponibles</option>';
