@@ -18,50 +18,13 @@ if (isset($_SESSION['usuario'])) {
         // Comienza una transacción para garantizar la integridad de los datos
         $conexion->begin_transaction();
 
-        foreach ($productos as $producto) {
-            $producto_id = $producto['id'];
-            $cantidad = $producto['cantidad'];
-
-            // Consultar el stock actual del producto
-            $query_stock = "SELECT Stock FROM producto WHERE id = '$producto_id'";
-            $result_stock = $conexion->query($query_stock);
-
-            if ($result_stock) {
-                $row_stock = $result_stock->fetch_assoc();
-                $stock_actual = $row_stock['Stock'];
-
-                // Verificar si hay suficiente stock disponible
-                if ($stock_actual >= $cantidad) {
-                    // Insertar detalle de venta
-                    $query_detalle = "INSERT INTO detalle_venta (ID_Venta, ID_Producto, Cantidad, Precio) VALUES ('$venta_id', '$producto_id', '$cantidad', '$precio_unitario')";
-                    $result_detalle = $conexion->query($query_detalle);
-
-                    if (!$result_detalle) {
-                        $ventas_exitosas = false;
-                        break; // Salir del bucle si ocurre un error
-                    }
-
-                    // Actualizar stock del producto
-                    $query_actualizar_stock = "UPDATE producto SET Stock = Stock - '$cantidad' WHERE id = '$producto_id'";
-                    $result_actualizar_stock = $conexion->query($query_actualizar_stock);
-
-                    if (!$result_actualizar_stock) {
-                        $ventas_exitosas = false;
-                        break; // Salir del bucle si ocurre un error
-                    }
-                } else {
-                    // Si no hay suficiente stock disponible, establecer la bandera a false y salir del bucle
-                    $ventas_exitosas = false;
-                    break;
-                }
-            } else {
-                $ventas_exitosas = false;
-                break; // Salir del bucle si ocurre un error al consultar el stock
+        try {
+            // Insertar venta
+            $query_venta = "INSERT INTO venta (Fecha, ID_Usuario) VALUES (NOW(), '$cliente_id')";
+            if (!mysqli_query($conexion, $query_venta)) {
+                throw new Exception("Error: " . $query_venta . "<br>" . mysqli_error($conexion));
             }
-        }
-        // Insertar venta
-        $query_venta = "INSERT INTO venta (Fecha, ID_Usuario) VALUES (NOW(), '$cliente_id')";
-        if (mysqli_query($conexion, $query_venta)) {
+
             $venta_id = mysqli_insert_id($conexion);
 
             // Insertar detalles de venta y actualizar stock
@@ -72,13 +35,27 @@ if (isset($_SESSION['usuario'])) {
                 $cantidad = $producto['cantidad'];
                 $subtotal = $cantidad * $precio_unitario;
 
+                // Verificar stock disponible
+                $query_stock_check = "SELECT Stock FROM producto WHERE id = '$producto_id'";
+                $resultado_stock_check = mysqli_query($conexion, $query_stock_check);
+                $row = mysqli_fetch_assoc($resultado_stock_check);
+                $stock_disponible = $row['Stock'];
+
+                if ($stock_disponible < $cantidad) {
+                    throw new Exception("Error. No hay stock disponible para el producto: $nombre");
+                }
+
                 // Insertar detalle de venta
                 $query_detalle = "INSERT INTO detalle_venta (ID_Venta, ID_Producto, Cantidad, Precio) VALUES ('$venta_id', '$producto_id', '$cantidad', '$precio_unitario')";
-                mysqli_query($conexion, $query_detalle);
+                if (!mysqli_query($conexion, $query_detalle)) {
+                    throw new Exception("Error: " . $query_detalle . "<br>" . mysqli_error($conexion));
+                }
 
                 // Actualizar stock del producto
-                $query_stock = "UPDATE producto SET Stock = Stock - '$cantidad' WHERE id = '$producto_id'";
-                mysqli_query($conexion, $query_stock);
+                $query_stock_update = "UPDATE producto SET Stock = Stock - '$cantidad' WHERE id = '$producto_id'";
+                if (!mysqli_query($conexion, $query_stock_update)) {
+                    throw new Exception("Error: " . $query_stock_update . "<br>" . mysqli_error($conexion));
+                }
             }
 
             // Calcular el total del precio de la venta actual
@@ -91,8 +68,13 @@ if (isset($_SESSION['usuario'])) {
             $response['status'] = 'success';
             $response['message'] = 'Tu compra se realizó con éxito.';
             $response['total_precio'] = $total_precio;
-        } else {
-            $response['message'] = "Error: " . $query_venta . "<br>" . mysqli_error($conexion);
+
+            // Confirmar la transacción
+            $conexion->commit();
+        } catch (Exception $e) {
+            $response['message'] = $e->getMessage();
+            $ventas_exitosas = false;
+            $conexion->rollback(); // Revertir la transacción en caso de error
         }
     }
 } else {
