@@ -17,13 +17,20 @@
     </style>
 </head>
 <body>
-<?php  session_start()  ?>
+<?php
+    session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header('Location: form_iniciosesion.html');
+        exit();
+    }
+
+    // Código de la página protegida
+?>
 <header class="header">
         <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
 </header>
-
 <div class="container">
     <!-- Breadcrumbs -->
     <nav>
