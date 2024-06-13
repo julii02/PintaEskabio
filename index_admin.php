@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +14,11 @@
             header('Location: form_iniciosesion.html');
             exit();
         }
-
+        // Verificar si el usuario es administrador
+        if ($_SESSION['admin'] != 1) {
+            header('Location: index_cliente.php'); // Redirige a una página de acceso denegado
+            exit();
+        }
         // Código de la página protegida
     ?>
     <header class="header">

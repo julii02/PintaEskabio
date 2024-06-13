@@ -133,6 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Redirigir o mostrar un mensaje de error, según sea necesario
         alert("Lo siento, debes ser mayor de edad para ingresar.");
         // Otra opción: redirigir a una página de "No autorizado"
-        window.location.href = "../advertencia.html";
+        window.location.href = "../PintaEskabio/adv.php";
     });
 });

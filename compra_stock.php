@@ -16,7 +16,19 @@
     </style>
 </head>
 <body>
-<?php  session_start()  ?>
+<?php
+    session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header('Location: form_iniciosesion.html');
+        exit();
+    }
+    // Verificar si el usuario es administrador
+    if ($_SESSION['admin'] != 1) {
+        header('Location: index_cliente.php'); // Redirige a una página de acceso denegado
+        exit();
+    }
+    // Código de la página protegida
+?>
 <!-- Header -->
 <header class="header">
         <a href="index_admin.php">
