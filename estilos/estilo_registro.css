@@ -29,6 +29,7 @@ header{
 header a {
     text-decoration: none;
     color: white;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-arriba, .menu{
@@ -61,11 +62,11 @@ header .buscador{
     border-radius: 5px;
     border: none;
 }
-.Iconos-sesion a span{
-    font-size: 2.5rem;
+.Iconos-sesion a{
+    font-size: 17px;
     color: white;
 }
-.Iconos-sesion a span:hover{
+.Iconos-sesion a:hover{
     color:wheat;
 }
 /*Segundo nivel de nagevacion*/
