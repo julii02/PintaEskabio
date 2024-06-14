@@ -288,7 +288,7 @@
             <h2 class="footer-title">Enlaces Rápidos</h2>
             <ul>
                 <li><a href="index_cliente.php">Inicio</a></li>
-                <li><a href="catalogo_log.php">Productos</a></li>
+                <li><a href="catalogo_log.php">Catalogo</a></li>
                 <li><a href="index_cliente.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index_cliente.php#Formulario">Contacto</a></li>
             </ul>

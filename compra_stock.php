@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Compras - Empresa de Alcohol</title>
+    <title>Registro de Compras - PintaEskabio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="estilos/estilos_admin.css">
@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body>
+<body class="body-principal">
 <?php
     session_start();
     if (!isset($_SESSION['usuario'])) {
@@ -34,7 +34,10 @@
         <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
-</header>
+        <div class="Iconos-sesion">
+            <form action="cerrar_sesion.php" method="post" style="display: inline;"> <button type="submit" class="btn btn-dangers">Cerrar Sesión</button> </form>
+        </div>
+    </header>
 
 <div class="container">
     <!-- Breadcrumbs -->
@@ -96,7 +99,7 @@
 
     <!-- Boton del ojito -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red modal-trigger" href="#modalAddSale">
+        <a class="btn-floating btn-large waves-light blue modal-trigger" href="#modalAddSale">
             <i class="large material-icons">add</i>
         </a>
     </div>

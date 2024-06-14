@@ -95,148 +95,79 @@
     background-size: cover;
     /*background-color:#2a0928;*/
 }
-/*-----------------Menu de navegacion entra ventanas-------------*/
 header{
-    font-family: "Righteous", sans-serif;
+    width: 100%;
+    width: 100%;
+    background-color: var(--oxford-blue);
+    color: white;
 }
-.nav-container {
-    font-family: "Righteous", sans-serif;
+header a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.nav-arriba, .menu{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background: var(--degradado-horizontal);
+    padding: 10px 20px;
+}
+.nav-arriba{
+    justify-content: space-between;
+    background-color: var(--oxford-blue);
+}
+.Icono{
+    flex:1;
+    transition: transform 1s;
 }
 
-.logo {
-    height: 60PX;
+header img:hover{
+    transform: scale(1.1);
 }
-
-.icons {
-    text-decoration: none;
-    margin-left: 20px;
+.logo{
+    height: 60px;
 }
-.icons a{
-    text-decoration: none;
+header .buscador{
+    flex:2;
+    text-align: center;
 }
-.icons i{
-    font-size: 40px;
-    color: var(--Platinum);
-}
-.icons i:hover{
-    color: rgb(189, 189, 189);
-}
-/*User name*/
-.user-container {
-     position: relative; /* No es necesario para este caso */
-}
-
-.user-menu {
-    display: none; /* Ocultar el menú al cargar la página */
-    position: absolute;
-    top: 50px; /* Posicionamiento del menú */
-    right: 0;
-    background-color: var(--color-primario);
-    padding: 10px;
+.buscador input{
+    width: 40%;
+    padding: 5px;
     border-radius: 5px;
-    z-index: 1000; /* Asegurar que el menú tenga un z-index alto */
+    border: none;
 }
-
-.user-menu a {
-    display: block;
-    color: var(--Platinum);
-    text-decoration: none;
-    margin-bottom: 5px;
+.Iconos-sesion a{
+    font-size: 17px;
+    color: white;
 }
-
-.user-menu a:hover {
-    color: #ccc;
+.Iconos-sesion a:hover{
+    color:wheat;
 }
-
-/* Top Navigation Styles */
-
-.top-nav .nav-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-}
-
-/* Main Navigation Styles */
-.main-nav {
-    background: var(--degradado-horizontal);
-    padding: 10px 0;
-    border-top: 1px solid #eaeaea;
-    /*border-bottom: 1px solid #eaeaea;*/
-}
-
-.main-nav .main-container {
-    position:relative;
-    padding: 0 20px;
-}
-
-nav ul {
-    z-index:1;
+/*Segundo nivel de nagevacion*/
+.menu{
+    width: 100%;
     justify-content: center;
+}
+.menu ul{
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center;
 }
-
-nav ul li {
-    position: relative;
+.menu ul li{
+    margin: 0 15px;
 }
-
-nav ul li a {
+.menu ul li a{
     text-decoration: none;
-    color: var(--Platinum);
-    padding: 15px 20px;
-    display: block;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
 }
-nav ul li a:hover{
-    color: rgb(189, 189, 189);
-}
-nav ul li:hover .dropdown {
-    display: block;
-}
-
-/* Dropdown Styles */
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--color-primario);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
-}
-
-.dropdown li {
-    width: 200px;
-
-}
-
-.dropdown li a {
-    padding: 10px 20px;
-}
-
-/* Hamburger Menu Styles */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    height: 3px;
-    width: 25px;
-    background-color: rgb(255, 255, 255);
-    margin: 4px 0;
-    transition: 0.4s;
+.menu ul li a:hover{
+    background-color: #575757;
+    border-radius: 5px;
 }
 
 

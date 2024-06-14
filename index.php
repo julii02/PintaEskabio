@@ -38,40 +38,25 @@
             </div>
         </modal>
         <header>
-            <div class="top-nav">
-                <div class="nav-container">
-                    <div href="index.php.html" class="logo">
-                        <a href="index.php">
-                            <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
-                        </a>
-                    </div>
-                    <div class="icons">
-                        <a id="user-icon"><i class="ti ti-user"></i></a>
-                        <div class="user-menu" id="user-menu">
-                            <a href="form_iniciosesion.html">Iniciar sesión</a>
-                        </div>
-                    </div>
+            <div class="nav-arriba">
+                <div class="Icono">
+                    <a href="index.php">
+                        <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
+                    </a>
+                </div>
+                <div class="Iconos-sesion">
+                    <a href="form_iniciosesion.html">Registrarse/Log In</a>
                 </div>
             </div>
-            <div class="main-nav">
-                <div class="main-container">
-                    <nav>
-                        <ul class="nav-links">
-                            <li><a href="index.php">Inicio</a></li>
-                            <li><a href="catalogo_sinlog.php">Productos</a></li>
-                            <li><a href="index.php#nosotros">Nosotros</a></li>
-                            <li><a href="index.php#marcas">Marcas</a></li>
-                            <li><a href="index.php#Preguntas">Preguntas Frecuentes</a></li>
-                            <li><a href="index.php#Formulario">Contacto</a></li>
-                        </ul>
-                    </nav>
-                    <div class="hamburger" id="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </div>
-            </div>
+            
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="catalogo_sinlog.php">Catalogo</a></li>
+                    <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                    <li><a href="index.php#Formulario">Contacto</a></li>
+                </ul>
+            </nav>
         </header>
         <script src="script.js"></script>
         <article>
@@ -310,10 +295,10 @@
             <div class="footer-section links">
                 <h2 class="footer-title">Enlaces Rápidos</h2>
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="catalogo_sinlog.php">Productos</a></li>
-                    <li><a href="index.php#nosotros">Nosotros</a></li>
-                    <li><a href="index.php#Formulario">Contacto</a></li>
+                    <li><a href="index_cliente.php">Inicio</a></li>
+                    <li><a href="catalogo_log.php">Catalogo</a></li>
+                    <li><a href="index_cliente.php#sobre-nosotros">Nosotros</a></li>
+                    <li><a href="index_cliente.php#Formulario">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section contact">

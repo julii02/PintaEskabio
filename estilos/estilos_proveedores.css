@@ -162,7 +162,7 @@
 }
 
 .provider-table thead tr {
-    background-color: #6c757d;
+    background-color: #009879;
     color: #ffffff;
     text-align: left;
     font-weight: bold;
@@ -186,11 +186,10 @@
 
 .provider-table tbody tr:hover {
     background-color: #f1f1f1;
-    cursor: pointer;
 }
 
 .provider-edit-button {
-    background-color: #6c757d;
+    background-color: #009879;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -201,4 +200,5 @@
 
 .provider-edit-button:hover {
     background-color: #5a6268;
+    cursor: pointer;
 }
