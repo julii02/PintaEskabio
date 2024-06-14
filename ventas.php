@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Ventas - PintaEskabio</title>
+    <title>Registro de Ventas - Empresa de Alcohol</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="estilos/estilos_admin.css">
@@ -12,6 +12,28 @@
         /* Agrega un margen superior a la tabla */
         .container {
             margin-top: 20px;
+        }
+        /* Estilo para el botón personalizado */
+        .custom-btn {
+            background-color: #dc3545; /* Color de fondo */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            padding: 11px 18px; /* Espacio interno */
+            cursor: pointer; /* Cursor de puntero */
+            text-decoration: none; /* Sin subrayado */
+            font-size: 15px; /* Tamaño de fuente */
+            border-radius: 6px; /* Borde redondeado */
+            transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+        .custom-btn:hover {
+            background-color: #c82333; /* Cambio de color al pasar el ratón */
+        }
+        .header a img {
+            vertical-align: middle; /* Alinea la imagen verticalmente */
+            max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
+            max-height: 100%; /* Ajusta la altura máxima de la imagen */
         }
     </style>
 </head>
@@ -33,6 +55,9 @@
         <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
+        <form action="cerrar_sesion.php" method="post" style="display: inline;">
+            <button type="submit" class="custom-btn">Cerrar Sesión</button>
+        </form>
 </header>
 <div class="container">
     <!-- Breadcrumbs -->

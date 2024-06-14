@@ -13,6 +13,28 @@
         .container {
             margin-top: 20px;
         }
+        /* Estilo para el botón personalizado */
+        .custom-btn {
+            background-color: #dc3545; /* Color de fondo */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            padding: 11px 18px; /* Espacio interno */
+            cursor: pointer; /* Cursor de puntero */
+            text-decoration: none; /* Sin subrayado */
+            font-size: 15px; /* Tamaño de fuente */
+            border-radius: 6px; /* Borde redondeado */
+            transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+        .custom-btn:hover {
+            background-color: #c82333; /* Cambio de color al pasar el ratón */
+        }
+        .header a img {
+            vertical-align: middle; /* Alinea la imagen verticalmente */
+            max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
+            max-height: 100%; /* Ajusta la altura máxima de la imagen */
+        }
     </style>
 </head>
 <body class="body-principal">
@@ -34,9 +56,9 @@
         <a href="index_admin.php">
             <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
         </a>
-        <div class="Iconos-sesion">
-            <form action="cerrar_sesion.php" method="post" style="display: inline;"> <button type="submit" class="btn btn-dangers">Cerrar Sesión</button> </form>
-        </div>
+        <form action="cerrar_sesion.php" method="post" style="display: inline;">
+            <button type="submit" class="custom-btn">Cerrar Sesión</button>
+        </form>
     </header>
 
 <div class="container">
