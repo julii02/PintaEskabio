@@ -1,21 +1,22 @@
 <?php
 
-    include('conexion.php');
+include('conexion.php');
 
-    $nombre = $_GET['firstname'];
-    $apellido = $_GET['lastname'];
-    $telefono = $_GET['phone'];
-    $email = $_GET['email'];
-    $asunto = $_GET['subject'];
-    $mensaje = $_GET['message'];
-  
+$nombre = mysqli_real_escape_string($conexion, $_POST['firstname']);
+$apellido = mysqli_real_escape_string($conexion, $_POST['lastname']);
+$telefono = mysqli_real_escape_string($conexion, $_POST['phone']);
+$email = mysqli_real_escape_string($conexion, $_POST['email']);
+$asunto = mysqli_real_escape_string($conexion, $_POST['subject']);
+$mensaje = mysqli_real_escape_string($conexion, $_POST['message']);
 
+$sql = "INSERT INTO `formulario`(`ID`, `Nombre`, `Apellido`, `Telefono`, `Email`, `Asunto`, `Texto`) VALUES ('', '$nombre', '$apellido', '$telefono', '$email', '$asunto', '$mensaje')";
 
-    $sql = "INSERT INTO `formulario`(`ID`, `Nombre`, `Apellido`, `Telefono`, `Email`, `Asunto`, `Texto`) VALUES ('','$nombre','$apellido','$telefono','$email','$asunto','$mensaje')"; 
+if (mysqli_query($conexion, $sql)) {
+    echo "Mensaje enviado correctamente";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+}
 
-    
-    mysqli_query($conexion , $sql);
-    header('Location: index.php#Formulario');
-    mysqli_close($conexion);
+mysqli_close($conexion);
 
-?> 
+?>
