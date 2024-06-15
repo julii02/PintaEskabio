@@ -246,7 +246,7 @@
                 </div>
             </div>
             <div class="form-container" id="contacto">
-        <form class="form-aspecto" id="contactForm" action="email_contacto.php" method="POST">
+        <form class="form-aspecto" id="contactForm" action="s" method="POST">
             <h2>Dejanos tu mensaje</h2>
             <label for="fname">Nombre</label>
             <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">

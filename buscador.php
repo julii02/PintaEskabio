@@ -7,7 +7,7 @@ $tipo = isset($_POST['Tipo']) ? $_POST['Tipo'] : 'Todos';
 $alcohol = isset($_POST['Alcohol']) ? $_POST['Alcohol'] : 'Todos';
 
 // Construir la consulta SQL base
-$sql = "SELECT * FROM producto WHERE 1=1";
+$sql = "SELECT * FROM producto WHERE Stock > 0";
 
 // Añadir filtros basados en los valores recibidos
 if (!empty($palabraClave)) {
