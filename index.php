@@ -64,34 +64,34 @@
                 <div class="container-carousel">
                     <div class="carruseles" id="slider"> 
                         <div class="slider-section">
-                            <img src="imagenes/principal.jpg" alt="Imagen 1" class="gallery-image">
+                            <img src="imagenes/pr1.png" alt="Imagen 1" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal01.jpg" alt="Imagen 2" class="gallery-image">
+                            <img src="imagenes/principal1.jpg" alt="Imagen 2" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal02.jpg" alt="Imagen 3" class="gallery-image">
+                            <img src="imagenes/principal3.jpg" alt="Imagen 3" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal03.jpg" alt="Imagen 4" class="gallery-image">
+                            <img src="imagenes/principal2.jpg" alt="Imagen 4" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal04.jpg" alt="Imagen 5" class="gallery-image">
+                            <img src="imagenes/principal4.jpg" alt="Imagen 5" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal05.jpg" alt="Imagen 6" class="gallery-image">
+                            <img src="imagenes/principal5.jpg" alt="Imagen 6" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal06.jpg" alt="Imagen 7" class="gallery-image">
+                            <img src="imagenes/principal6.jpg" alt="Imagen 7" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal07.jpg" alt="Imagen 8" class="gallery-image">
+                            <img src="imagenes/principal7.jpg" alt="Imagen 8" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal08.jpg" alt="Imagen 9" class="gallery-image">
+                            <img src="imagenes/principal8.jpg" alt="Imagen 9" class="gallery-image">
                         </div>
                         <div class="slider-section">
-                            <img src="imagenes/principal09.jpg" alt="Imagen 10" class="gallery-image">
+                            <img src="imagenes/principal9.jpg" alt="Imagen 10" class="gallery-image">
                         </div>
                     </div> 
                     <div class="btn-left"><i class='bx bx-chevron-left'></i></div>
