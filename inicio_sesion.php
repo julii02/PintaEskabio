@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página</title>
+    <title>PintaEskabio</title>
     <link rel="stylesheet" type="text/css" href="estilos/estilos_admin.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
 </head>
