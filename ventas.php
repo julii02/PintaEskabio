@@ -128,7 +128,7 @@
     <div id="modalAddSale" class="modal">
         <div class="modal-content">
             <h4>Agregar Venta</h4>
-            <form id="formAddSale" method="POST" action="consultarVenta.php">
+            <form id="formAddSale" method="POST" action="consultarVenta.php" onsubmit="return verificarStock();">
                 <div id="productsContainer">
                     <div class="row product-row">
                         <div class="input-field col s12">
@@ -258,6 +258,32 @@
             instance.open();
         })
         .catch(error => console.error('Error:', error));
+    }
+    
+    // Verificar stock antes de enviar el formulario
+    function verificarStock() {
+        let valid = true;
+        document.querySelectorAll('.product-select').forEach((select, index) => {
+            let productId = select.value;
+            let quantity = document.getElementById(`quantity_${index}`).value;
+            
+            // Realiza una solicitud AJAX para verificar el stock del producto
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', `verificarStock.php?id=${productId}&cantidad=${quantity}`, false);
+            xhr.send();
+            
+            if (xhr.status === 200) {
+                let response = JSON.parse(xhr.responseText);
+                if (!response.disponible) {
+                    valid = false;
+                    alert(`El producto ${response.producto} no tiene suficiente stock. Stock actual: ${response.stock}`);
+                }
+            } else {
+                valid = false;
+                alert('Error al verificar el stock del producto.');
+            }
+        });
+        return valid;
     }
     </script>
 </div>
