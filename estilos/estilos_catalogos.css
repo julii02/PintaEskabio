@@ -442,3 +442,13 @@ div.producto-detalles {
     right: 10px;
     cursor: pointer;
 }
+.efecto {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+.efecto:hover{
+    background-color: #575757;
+    border-radius: 5px;
+}

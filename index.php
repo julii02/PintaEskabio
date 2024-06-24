@@ -53,7 +53,7 @@
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="catalogo_sinlog.php">Catalogo</a></li>
-                    <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                    <li><a href="index.php#nosotros">Nosotros</a></li>
                     <li><a href="index.php#Formulario">Contacto</a></li>
                 </ul>
             </nav>

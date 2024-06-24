@@ -46,7 +46,7 @@
                 <ul>
                     <li><a href="index_cliente.php">Inicio</a></li>
                     <li><a href="catalogo_log.php">Catalogo</a></li>
-                    <li><a href="index_cliente.php#sobre-nosotros">Nosotros</a></li>
+                    <li><a href="index_cliente.php#nosotros">Nosotros</a></li>
                     <li><a href="index_cliente.php#Formulario">Contacto</a></li>
                 </ul>
             </nav>

@@ -32,6 +32,13 @@
         </div>
     </header>
     <main class="main-content">
+        <div class="section" id="Catalogo">
+            <a href="catalogo_admin.php">
+                <img src="imagenes/izq.png" alt="Catalogo">
+                <br>
+                <span>Ver Catálogo</span>
+            </a>    
+        </div>
         <div class="section" id="clientes">
             <a href="clientes.php">
                 <img src="imagenes/cliente.png" alt="Clientes">
