@@ -7,7 +7,7 @@ $tipo = isset($_POST['Tipo']) ? $_POST['Tipo'] : 'Todos';
 $alcohol = isset($_POST['Alcohol']) ? $_POST['Alcohol'] : 'Todos';
 
 // Construir la consulta SQL base
-$sql = "SELECT * FROM producto WHERE 1=1";
+$sql = "SELECT * FROM producto WHERE Stock > 0";
 
 // Añadir filtros basados en los valores recibidos
 if (!empty($palabraClave)) {
@@ -42,7 +42,7 @@ if (mysqli_num_rows($result) > 0) {
         $output .= '<p>Tipo: ' . $row["Tipo"] . '</p>';
         $output .= '<div class="stock-container">';
         $output .= '<label>Cantidad:</label>';
-        $output .= '<input type="number" class="stock" value="1" min="1" max="' . $row["Stock"] . '">';
+        $output .= '<input type="number" class="stock" value="0" min="0" max="' . $row["Stock"] . '">';
         $output .= '</div>';
         $output .= '<button class="btn-anadir-carrito">Añadir al carrito</button>';
         $output .= '</div>';

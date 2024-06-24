@@ -254,29 +254,50 @@
                 </div>
             </div>
             <div class="form-container" id="contacto">
-                <form class="form-aspecto" action="email_contacto.php" method="POST">
-                    <h2>Dejanos tu mensaje</h2>
-                    <label for="fname">Nombre</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
-        
-                    <label for="lname">Apellido</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Tu apellido..">
-        
-                    <label for="phone">Teléfono</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Tu teléfono..">
-        
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Tu email..">
-        
-                    <label for="subject">Asunto</label>
-                    <input type="text" id="subject" name="subject" placeholder="Asunto..">
-        
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" placeholder="Escribe tu mensaje.." style="height:200px"></textarea>
-        
-                    <input type="submit" value="Enviar">
-                </form>
-            </div>
+        <form class="form-aspecto" id="contactForm" action="email_contacto.php" method="POST">
+            <h2>Dejanos tu mensaje</h2>
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
+
+            <label for="lname">Apellido</label>
+            <input type="text" id="lname" name="lastname" placeholder="Tu apellido..">
+
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Tu teléfono..">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu email..">
+
+            <label for="subject">Asunto</label>
+            <input type="text" id="subject" name="subject" placeholder="Asunto..">
+
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje.." style="height:200px"></textarea>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que se envíe el formulario de forma tradicional
+
+            var formData = new FormData(this);
+
+            fetch('email_contacto.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Mensaje enviado correctamente');
+                document.getElementById('contactForm').reset(); // Opcional: Reiniciar el formulario
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 
         </section>    
             <script src="script.js"></script>
@@ -392,6 +413,8 @@
             }
         };
     </script>
+
+
 
     </body>
 </html>
