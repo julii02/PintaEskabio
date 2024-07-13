@@ -9,31 +9,63 @@
     <link rel="stylesheet" type="text/css" href="estilos/estilos_admin.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <style>
-        /* Agrega un margen superior a la tabla */
         .container {
             margin-top: 20px;
         }
-        /* Estilo para el botón personalizado */
         .custom-btn {
-            background-color: #dc3545; /* Color de fondo */
-            color: white; /* Color del texto */
-            border: none; /* Sin borde */
-            padding: 11px 18px; /* Espacio interno */
-            cursor: pointer; /* Cursor de puntero */
-            text-decoration: none; /* Sin subrayado */
-            font-size: 15px; /* Tamaño de fuente */
-            border-radius: 6px; /* Borde redondeado */
-            transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
             font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         }
-
         .custom-btn:hover {
-            background-color: #c82333; /* Cambio de color al pasar el ratón */
+            background-color: #c82333;
         }
         .header a img {
-            vertical-align: middle; /* Alinea la imagen verticalmente */
-            max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
-            max-height: 100%; /* Ajusta la altura máxima de la imagen */
+            vertical-align: middle;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .modal-content h4 {
+            margin-bottom: 20px;
+        }
+        .modal-content p {
+            margin: 10px 0;
+        }
+        .modal-footer a {
+            margin-right: 10px;
+        }
+        .product-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-detail img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #000;
+            margin-right: 20px;
+        }
+        .product-detail-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .divider {
+            height: 2px;
+            background-color: #000;
+            margin: 20px 0;
+        }
+        .total-venta {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
         }
     </style>
 </head>
@@ -44,25 +76,20 @@
         header('Location: form_iniciosesion.html');
         exit();
     }
-    // Verificar si el usuario es administrador
     if ($_SESSION['admin'] != 1) {
-        header('Location: index_cliente.php'); // Redirige a una página de acceso denegado
+        header('Location: index_cliente.php');
         exit();
     }
-    // Código de la página protegida
 ?>
-<!-- Header -->
 <header class="header">
-        <a href="index_admin.php">
-            <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
-        </a>
-        <form action="cerrar_sesion.php" method="post" style="display: inline;">
-            <button type="submit" class="custom-btn">Cerrar Sesión</button>
-        </form>
-    </header>
-
+    <a href="index_admin.php">
+        <img src="imagenes/asd.png" alt="Logo de la página" class="logo">
+    </a>
+    <form action="cerrar_sesion.php" method="post" style="display: inline;">
+        <button type="submit" class="custom-btn">Cerrar Sesión</button> 
+    </form>
+</header>
 <div class="container">
-    <!-- Breadcrumbs -->
     <nav>
         <div class="nav-wrapper blue-grey darken-1">
             <div class="col s12">
@@ -71,8 +98,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Tabla de mostrado -->
     <div class="card">
         <div class="card-content">
             <span class="card-title">Registro de Compras</span>
@@ -88,13 +113,13 @@
                 <tbody id="salesTableBody">
                     <?php
                     include 'conexion.php';
-                    $query = "SELECT c.ID, c.Fecha, GROUP_CONCAT(u.Nombre SEPARATOR ', ') AS Productos, SUM(dc.Precio) AS TotalPrecio, u.Nombre AS Cliente
+                    $query = "SELECT c.ID, c.Fecha AS Fecha, GROUP_CONCAT(p.nombre SEPARATOR ', ') AS Productos, SUM(dc.Precio) AS TotalPrecio, u.nombre AS Cliente
                               FROM compra c
                               JOIN detalle_compra dc ON c.ID = dc.ID_Compra
                               JOIN producto p ON dc.ID_Producto = p.id
                               JOIN proveedor u ON c.ID_Proveedor = u.id
-                              GROUP BY c.ID, c.Fecha, u.Nombre
-                              ORDER BY c.Fecha DESC";
+                              GROUP BY c.ID, c.Fecha, u.nombre
+                              ORDER BY c.ID DESC";
                     $result = mysqli_query($conexion, $query);
                     $totalVentas = 0;
                     if (mysqli_num_rows($result) > 0) {
@@ -118,18 +143,14 @@
             </table>
         </div>
     </div>
-
-    <!-- Boton del ojito -->
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-light blue modal-trigger" href="#modalAddSale">
             <i class="large material-icons">add</i>
         </a>
     </div>
-
-    <!-- Tabla de adición -->
     <div id="modalAddSale" class="modal">
         <div class="modal-content">
-            <h4>Agregar Venta</h4>
+            <h4>Agregar Compra</h4>
             <form id="formAddSale" method="POST" action="consultarCompra.php">
                 <div id="productsContainer">
                     <div class="row product-row">
@@ -179,7 +200,6 @@
                         </script>
                     </div>
                 </div>
-                <!-- Botón para agregar un nuevo producto -->
                 <div class="center">
                     <button id="btnAgregar" name="btnAgregar" class="btn waves-effect waves-light" type="button"><i class="material-icons left">add_circle</i>
                         Agregar Producto
@@ -215,16 +235,10 @@
             </form>
         </div>
     </div>
-    
-    <!-- Vista con detalles de la compra -->
     <div id="modalViewSale" class="modal">
         <div class="modal-content">
             <h4>Detalles de la Compra</h4>
-            <p>Fecha: <span id="viewDate"></span></p>
-            <p>Productos: <span id="viewProducts"></span></p>
-            <p>Cantidades: <span id="viewQuantities"></span></p>
-            <p>Precios: <span id="viewPrices"></span></p>
-            <p>Proveedor: <span id="viewCustomer"></span></p>
+            <div id="saleDetailsContainer"></div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-light btn blue">Cerrar</a>
@@ -232,33 +246,45 @@
     </div>
     <script>
         function showSaleDetails(compraID) {
-        fetch(`obtenerDetallesCompra.php?compraID=${compraID}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.length > 0) {
-                    document.getElementById('viewDate').textContent = data[0].Fecha;
-                    let productos = [], cantidades = [], precios = [];
-                    data.forEach(item => {
-                        productos.push(item.Producto);
-                        cantidades.push(item.Cantidad);
-                        precios.push(item.Precio);
-                    });
-                    document.getElementById('viewProducts').textContent = productos.join(', ');
-                    document.getElementById('viewQuantities').textContent = cantidades.join(', ');
-                    document.getElementById('viewPrices').textContent = precios.map(price => `$${price}`).join(', ');
-                    document.getElementById('viewCustomer').textContent = data[0].Proveedor;
-                } else {
-                    document.getElementById('viewDate').textContent = '';
-                    document.getElementById('viewProducts').textContent = '';
-                    document.getElementById('viewQuantities').textContent = '';
-                    document.getElementById('viewPrices').textContent = '';
-                    document.getElementById('viewCustomer').textContent = '';
-                }
-                var modal = document.getElementById('modalViewSale');
-                var instance = M.Modal.getInstance(modal);
-                instance.open();
-            })
-            .catch(error => console.error('Error:', error));
+            fetch(`obtenerDetallesCompra.php?compraID=${compraID}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('saleDetailsContainer');
+                    container.innerHTML = '';
+                    let totalVenta = 0;
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            totalVenta += parseFloat(item.Precio);
+                            const detail = document.createElement('div');
+                            detail.classList.add('product-detail');
+                            detail.innerHTML = `
+                                <img src="uploads/${item.Imagen}" alt="Producto">
+                                <div class="product-detail-info">
+                                    <p>Producto: ${item.Producto}</p>
+                                    <p>Descripción: ${item.Descripcion}</p>
+                                    <p>Cantidad: ${item.Cantidad}</p>
+                                    <p>Tipo de bebida: ${item.Tipo}</p>
+                                    <p>Proveedor: ${item.Proveedor}</p>
+                                    <p>Precio: $${item.Precio}</p>
+                                </div>
+                            `;
+                            container.appendChild(detail);
+                            const divider = document.createElement('div');
+                            divider.classList.add('divider');
+                            container.appendChild(divider);
+                        });
+                        const totalVentaText = document.createElement('p');
+                        totalVentaText.classList.add('total-venta');
+                        totalVentaText.textContent = `TOTAL: $${totalVenta.toFixed(2)}`;
+                        container.appendChild(totalVentaText);
+                    } else {
+                        container.innerHTML = '<p>No hay detalles disponibles.</p>';
+                    }
+                    var modal = document.getElementById('modalViewSale');
+                    var instance = M.Modal.getInstance(modal);
+                    instance.open();
+                })
+                .catch(error => console.error('Error:', error));
         }
     </script>
 </div>
@@ -266,72 +292,69 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/materialize.js"></script>
-
 <script>
-        $(document).ready(function() {
-            $('.modal').modal();
-            $('select').formSelect();
-            $('.datepicker').datepicker({
-                format: 'yyyy-mm-dd'
+    $(document).ready(function() {
+        $('.modal').modal();
+        $('select').formSelect();
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+        $('#btnAgregar').click(function() {
+            var productIndex = $('.product-row').length;
+            var productRow = `
+                <div class="row product-row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">local_bar</i>
+                        <select id="product_${productIndex}" name="products[${productIndex}][product]" class="validate product-select" required>
+                            <?php
+                            $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioCompra FROM producto");
+                            if (mysqli_num_rows($consulta_productos) > 0) {
+                                echo '<option value="" disabled selected>Selecciona un producto</option>';
+                                while ($fila = mysqli_fetch_assoc($consulta_productos)) {
+                                    echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioCompra'] . '">' . $fila['nombre'] . '</option>';
+                                }
+                            } else {
+                                echo '<option value="" disabled>No hay productos disponibles</option>';
+                            }
+                            ?>
+                        </select>
+                        <label for="product_${productIndex}">Producto</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">confirmation_number</i>
+                        <input type="number" id="quantity_${productIndex}" name="products[${productIndex}][quantity]" class="validate" required>
+                        <label for="quantity_${productIndex}">Cantidad</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">attach_money</i>
+                        <input type="number" step="0.01" id="price_${productIndex}" name="products[${productIndex}][price]" class="validate" required readonly>
+                        <label id="price_label_${productIndex}" for="price_${productIndex}">Precio</label>
+                    </div>
+                </div>
+            `;
+            $('#productsContainer').append(productRow);
+
+            $('#product_' + productIndex).formSelect();
+
+            $('#product_' + productIndex).change(function() {
+                var selectedOption = this.options[this.selectedIndex];
+                var price = selectedOption.getAttribute("data-price");
+                $('#price_' + productIndex).val(price);
+                $('#price_label_' + productIndex).addClass('active');
             });
 
-            $('#btnAgregar').click(function() {
-                var productIndex = $('.product-row').length;
-                var productRow = `
-                    <div class="row product-row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">local_bar</i>
-                            <select id="product_${productIndex}" name="products[${productIndex}][product]" class="validate product-select" required>
-                                <?php
-                                $consulta_productos = mysqli_query($conexion, "SELECT id, nombre, PrecioCompra FROM producto");
-                                if (mysqli_num_rows($consulta_productos) > 0) {
-                                    echo '<option value="" disabled selected>Selecciona un producto</option>';
-                                    while ($fila = mysqli_fetch_assoc($consulta_productos)) {
-                                        echo '<option value="' . $fila['id'] . '" data-price="' . $fila['PrecioCompra'] . '">' . $fila['nombre'] . '</option>';
-                                    }
-                                } else {
-                                    echo '<option value="" disabled>No hay productos disponibles</option>';
-                                }
-                                ?>
-                            </select>
-                            <label for="product_${productIndex}">Producto</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">confirmation_number</i>
-                            <input type="number" id="quantity_${productIndex}" name="products[${productIndex}][quantity]" class="validate" required>
-                            <label for="quantity_${productIndex}">Cantidad</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">attach_money</i>
-                            <input type="number" step="0.01" id="price_${productIndex}" name="products[${productIndex}][price]" class="validate" required readonly>
-                            <label id="price_label_${productIndex}" for="price_${productIndex}">Precio</label>
-                        </div>
-                    </div>
-                `;
-                $('#productsContainer').append(productRow);
-
-                $('#product_' + productIndex).formSelect();
-
-                $('#product_' + productIndex).change(function() {
-                    var selectedOption = this.options[this.selectedIndex];
-                    var price = selectedOption.getAttribute("data-price");
-                    $('#price_' + productIndex).val(price);
-                    $('#price_label_' + productIndex).addClass('active');
-                });
-
-                $('#quantity_' + productIndex).on('input', function() {
-                    var quantity = parseFloat(this.value);
-                    var selectedOption = $('#product_' + productIndex).find('option:selected');
-                    var price = parseFloat(selectedOption.attr('data-price'));
-                    var totalPrice = quantity * price;
-                    $('#price_' + productIndex).val(totalPrice);
-                });
+            $('#quantity_' + productIndex).on('input', function() {
+                var quantity = parseFloat(this.value);
+                var selectedOption = $('#product_' + productIndex).find('option:selected');
+                var price = parseFloat(selectedOption.attr('data-price'));
+                var totalPrice = quantity * price;
+                $('#price_' + productIndex).val(totalPrice);
             });
         });
-    </script>
-</div>
+    });
+</script>
 <footer class="footer">
     <p>&copy; 2024 Mi Página. Todos los derechos reservados.</p>
 </footer>
 </body>
-</html>

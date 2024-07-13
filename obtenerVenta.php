@@ -1,13 +1,13 @@
 <?php
 include 'conexion.php';
 
-$query = "SELECT v.ID, v.Fecha, GROUP_CONCAT(p.nombre SEPARATOR ', ') AS Productos, SUM(dv.Precio) AS TotalPrecio, u.nombre AS Cliente
-    FROM venta v
-    JOIN detalle_venta dv ON v.ID = dv.ID_Venta
-    JOIN producto p ON dv.ID_Producto = p.id
-    JOIN usuario u ON v.ID_Usuario = u.id
-    GROUP BY v.ID, v.Fecha, u.nombre
-    ORDER BY v.Fecha DESC";
+$query = "SELECT v.ID, DATE_FORMAT(v.Fecha, '%Y-%m-%d %H:%i:%s') AS FechaCompleta, DATE(v.Fecha) AS Fecha, GROUP_CONCAT(p.nombre SEPARATOR ', ') AS Productos, SUM(dv.Precio) AS TotalPrecio, u.nombre AS Cliente
+          FROM venta v
+          JOIN detalle_venta dv ON v.ID = dv.ID_Venta
+          JOIN producto p ON dv.ID_Producto = p.id
+          JOIN usuario u ON v.ID_Usuario = u.id
+          GROUP BY v.ID, FechaCompleta, Fecha, u.nombre
+          ORDER BY v.ID DESC";
 $result = mysqli_query($conexion, $query);
 $totalVentas = 0;
 $output = '';
@@ -29,4 +29,6 @@ if (mysqli_num_rows($result) > 0) {
     $output .= "<tr><td colspan='6'>No hay ventas registradas</td></tr>";
 }
 echo $output;
+
+mysqli_close($conexion);
 ?>

@@ -2,9 +2,9 @@
 include 'conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fecha = $_POST['date'];
     $cliente_id = $_POST['client'];
     $productos = $_POST['products'];
+    $fecha = date('Y-m-d H:i:s'); // Obtiene la fecha y hora actuales
 
     // Validar productos únicos
     $productos = arrayUniqueMultidimensional($productos, 'product');

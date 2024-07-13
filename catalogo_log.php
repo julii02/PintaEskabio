@@ -14,6 +14,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Righteous&family=Seymour+One&display=swap');
     </style>
+    <style>
+        .cantidad-input {
+            width: 35px; /* Ajusta este valor según sea necesario */
+        }
+    </style>
 </head>
 <body class="body-principal">
     <?php
@@ -116,7 +121,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
-                    <button type="button" class="btn btn-success" onclick="confirmarCompra()">Confirmar compra</button>
+                    <button type="button" class="btn btn-success" onclick="iniciarPagoMercadoPago()">Confirmar compra</button>
                 </div>
             </div>
         </div>
@@ -165,9 +170,6 @@
             <p>&copy; UTN FRH – Todos los derechos reservados - 2024</p>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
     <script>
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -210,9 +212,12 @@
                         <img src="uploads/${producto.imagen}" alt="${producto.nombre}" class="img-carrito">
                         <div class="producto-info">
                             <p class="negrita">${producto.nombre}</p>
-                            <p>Cantidad: ${producto.cantidad}</p>
+                            <p>
+                                Cantidad: 
+                                <input type="number" min="1" value="${producto.cantidad}" class="cantidad-input" onchange="cambiarCantidad(${index}, this.value)">
+                            </p>
                             <p>Precio unitario: $${producto.precio.toFixed(2)}</p>
-                            <p>Subtotal: $${subtotal.toFixed(2)}</p>
+                            <p>Subtotal: $<span id="subtotal-${index}">${subtotal.toFixed(2)}</span></p>
                         </div>
                         <button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${index})">Eliminar</button>
                     </div>
@@ -225,6 +230,16 @@
             totalElement.classList.add('total-general');
             totalElement.innerHTML = `<p class="negrita">Subtotal: $${totalGeneral.toFixed(2)}</p>`;
             carritoContenido.appendChild(totalElement);
+        }
+
+        function cambiarCantidad(index, nuevaCantidad) {
+            nuevaCantidad = parseInt(nuevaCantidad);
+            if (nuevaCantidad < 1) {
+                nuevaCantidad = 1;
+            }
+            carrito[index].cantidad = nuevaCantidad;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarCarrito();
         }
 
         function eliminarDelCarrito(index) {
@@ -250,46 +265,6 @@
             setTimeout(() => {
                 notification.remove();
             }, 3000);
-        }
-        
-        function confirmarCompra() {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-            // Verificar si el carrito está vacío
-            if (carrito.length === 0) {
-                mostrarNotificacion('El carrito está vacío');
-                return;
-            }
-
-            // Crear un objeto FormData para enviar los datos
-            let formData = new FormData();
-            carrito.forEach((producto, index) => {
-                formData.append(`productos[${index}][id]`, producto.id);
-                formData.append(`productos[${index}][nombre]`, producto.nombre);
-                formData.append(`productos[${index}][precio]`, producto.precio);
-                formData.append(`productos[${index}][cantidad]`, producto.cantidad);
-            });
-
-            // Realizar la solicitud AJAX para confirmar la compra
-            $.ajax({
-                url: 'guardar_compra.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    let res = JSON.parse(response);
-                    mostrarNotificacion(res.message);
-                    if (res.status === 'success') {
-                        // Vaciar el carrito localmente después de una compra exitosa
-                        localStorage.removeItem('carrito');
-                        actualizarCarrito(); // Actualizar la visualización del carrito en la página
-                    }
-                },
-                error: function(xhr, status, error) {
-                    mostrarNotificacion('Error al confirmar la compra');
-                }
-            });
         }
 
         function actualizarTablaVentas() {
@@ -351,6 +326,141 @@
         $(document).ready(function() {
             buscar_filtro('', 'Todos', 'Todos', 'Todos');
             actualizarCarrito(); // Cargar carrito desde localStorage al cargar la página
+        });
+    </script>
+    <!-- Scripts al final del body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+        // Función para iniciar el pago con Mercado Pago
+        function iniciarPagoMercadoPago() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            if (carrito.length === 0) {
+                mostrarNotificacion('El carrito está vacío');
+                return;
+            }
+
+            let items = carrito.map((producto) => ({
+                id: producto.id.toString(),
+                title: producto.nombre,
+                description: `Cantidad: ${producto.cantidad}`,
+                quantity: producto.cantidad,
+                currency_id: 'ARS', // Moneda (ejemplo: ARS para Pesos Argentinos)
+                unit_price: producto.precio,
+            }));
+
+            // Guarda el carrito en la sesión antes de iniciar el pago
+            fetch('guardar_carrito.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ carrito: carrito })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    fetch('crear_preferencia.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            items: items,
+                            payer: {
+                                email: 'usuario123@example.com', // Usar un email ficticio válido
+                            },
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.init_point) {
+                            localStorage.setItem('venta_id', data.external_reference); // Guardar la referencia de la venta
+                            window.location.href = data.init_point;
+                        } else {
+                            console.error('Error al obtener init_point de Mercado Pago:', data);
+                            mostrarNotificacion('Error al iniciar el pago con Mercado Pago');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al crear la preferencia:', error);
+                        mostrarNotificacion('Error al iniciar el pago con Mercado Pago');
+                    });
+                } else {
+                    mostrarNotificacion('Error al guardar el carrito');
+                }
+            })
+            .catch(error => {
+                console.error('Error al guardar el carrito:', error);
+                mostrarNotificacion('Error al guardar el carrito');
+            });
+        }
+
+        function procesarCompra() {
+            let external_reference = new URLSearchParams(window.location.search).get('external_reference');
+
+            fetch('procesar_compra.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    external_reference: external_reference
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    mostrarNotificacion('Compra procesada con éxito.');
+                    localStorage.removeItem('carrito');
+                    localStorage.removeItem('venta_id');
+                    setTimeout(() => {
+                        window.location.href = 'catalogo_log.php';
+                    }, 3000);
+                } else {
+                    mostrarNotificacion('Error al procesar la compra: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error al procesar la compra:', error);
+                mostrarNotificacion('Error al procesar la compra.');
+            });
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const payment_status = urlParams.get('status');
+
+            if (payment_status === 'approved') {
+                mostrarNotificacion('Pago realizado con éxito. Procesando compra...');
+                procesarCompra();
+            } else if (payment_status === 'failure') {
+                mostrarNotificacion('El pago ha fallado. Inténtalo de nuevo.');
+            } else if (payment_status === 'pending') {
+                mostrarNotificacion('El pago está pendiente. Te notificaremos cuando se haya completado.');
+            }
+        };
+
+        function mostrarNotificacion(mensaje) {
+            const notificationContainer = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-success';
+            notification.textContent = mensaje;
+            notificationContainer.appendChild(notification);
+
+            // Eliminar la notificación después de 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Document ready
+        $(document).ready(function() {
+            // Llamar a la función para cargar los productos al inicio
+            buscar_filtro('', 'Todos', 'Todos', 'Todos');
         });
     </script>
 </body>
